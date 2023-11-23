@@ -26,9 +26,9 @@ function Navbar() {
 
     const navlinks = <>
         <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='/'>Home</NavLink>
-        <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='/about'>Home</NavLink>
-        <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='/us'>Home</NavLink>
-        <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='/home'>Home</NavLink>
+        <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='all_properties'>All Properties</NavLink>
+        <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='dashboard'>Dashboard</NavLink>
+        <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='login'>Login</NavLink>
         {/* <NavLink className='text-[20px] font-extrabold hover:text-[#EEFF25]' to='our-shop/salad'>
             <button className="btn">
                 Inbox

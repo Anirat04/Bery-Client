@@ -1,0 +1,101 @@
+[
+    {
+        "_id": "1",
+        "Property_img": "https://i.ibb.co/GRCDc4r/properties1.webp",
+        "Property_location": "Downtown City, XYZ",
+        "Price_range": "$500,000 - $600,000",
+        "Property_title": "Luxurious Downtown Condo",
+        "Agent_name": "John Doe",
+        "Agent_img": "https://example.com/agent1.jpg",
+        "verification_status": "Verified",
+        "description": "This stunning condo in the heart of downtown offers luxurious living with breathtaking views. With modern amenities and a prime location, it's the perfect urban retreat."
+    },
+    {
+        "_id": "2",
+        "Property_img": "https://i.ibb.co/GRCDc4r/properties1.webp",
+        "Property_location": "Suburb Area, ABC",
+        "Price_range": "$400,000 - $450,000",
+        "Property_title": "Family Home with a View",
+        "Agent_name": "Jane Smith",
+        "Agent_img": "https://example.com/agent2.jpg",
+        "verification_status": "Verified",
+        "description": "A charming family home nestled in a peaceful suburban neighborhood. Enjoy scenic views and spacious living areas, making it an ideal place for family gatherings."
+    },
+    {
+        "_id": "3",
+        "Property_img": "https://i.ibb.co/GRCDc4r/properties1.webp",
+        "Property_location": "Beachfront, PQR",
+        "Price_range": "$800,000 - $900,000",
+        "Property_title": "Ocean View Paradise",
+        "Agent_name": "Michael Johnson",
+        "Agent_img": "https://example.com/agent3.jpg",
+        "verification_status": "Verified",
+        "description": "Experience the epitome of coastal living in this oceanfront paradise. Immerse yourself in the beauty of the sea and the tranquility of a beachfront lifestyle."
+    },
+    {
+        "_id": "4",
+        "Property_img": "https://i.ibb.co/GRCDc4r/properties1.webp",
+        "Property_location": "Mountain Retreat, LMN",
+        "Price_range": "$700,000 - $750,000",
+        "Property_title": "Serene Mountain Cabin",
+        "Agent_name": "Emily Davis",
+        "Agent_img": "https://example.com/agent4.jpg",
+        "verification_status": "Verified",
+        "description": "Escape to the mountains in this serene cabin retreat. Surrounded by nature, it offers a peaceful haven away from the hustle and bustle of city life."
+    },
+    {
+        "_id": "5",
+        "Property_img": "https://i.ibb.co/GRCDc4r/properties1.webp",
+        "Property_location": "City Center, UVW",
+        "Price_range": "$1,200,000 - $1,500,000",
+        "Property_title": "Penthouse Living",
+        "Agent_name": "Alex Turner",
+        "Agent_img": "https://example.com/agent5.jpg",
+        "verification_status": "Verified",
+        "description": "Indulge in luxury with penthouse living in the heart of the city. Enjoy panoramic views, high-end finishes, and a lifestyle of sophistication."
+    },
+    {
+        "_id": "6",
+        "Property_img": "https://i.ibb.co/GRCDc4r/properties1.webp",
+        "Property_location": "Lakefront Property, XYZ",
+        "Price_range": "$600,000 - $700,000",
+        "Property_title": "Tranquil Lakeside Retreat",
+        "Agent_name": "Jessica White",
+        "Agent_img": "https://example.com/agent6.jpg",
+        "verification_status": "Verified",
+        "description": "Find peace and serenity in this lakeside retreat. With a private lakefront, it's the perfect place to unwind and enjoy nature's beauty."
+    },
+    {
+        "_id": "7",
+        "Property_img": "https://i.ibb.co/GRCDc4r/properties1.webp",
+        "Property_location": "Golf Course Community, LMN",
+        "Price_range": "$550,000 - $650,000",
+        "Property_title": "Luxury Golf Villa",
+        "Agent_name": "Matthew Turner",
+        "Agent_img": "https://example.com/agent7.jpg",
+        "verification_status": "Verified",
+        "description": "Live in style in this luxurious golf villa situated in a prestigious golf course community. Enjoy a perfect blend of elegance and recreational amenities."
+    },
+    {
+        "_id": "8",
+        "Property_img": "https://i.ibb.co/GRCDc4r/properties1.webp",
+        "Property_location": "Historic District, ABC",
+        "Price_range": "$850,000 - $950,000",
+        "Property_title": "Charming Historic Home",
+        "Agent_name": "Olivia Walker",
+        "Agent_img": "https://example.com/agent8.jpg",
+        "verification_status": "Verified",
+        "description": "Step back in time with this charming historic home in the heart of a well-preserved historic district. Experience the beauty of classic architecture with modern comforts."
+    },
+    {
+        "_id": "9",
+        "Property_img": "https://i.ibb.co/GRCDc4r/properties1.webp",
+        "Property_location": "Riverside Oasis, PQR",
+        "Price_range": "$900,000 - $1,000,000",
+        "Property_title": "Riverside Luxury Estate",
+        "Agent_name": "Daniel Adams",
+        "Agent_img": "https://example.com/agent9.jpg",
+        "verification_status": "Verified",
+        "description": "Escape to this riverside luxury estate, offering a perfect blend of sophistication and natural beauty. Enjoy the calming sounds of the river and lush surroundings."
+    }
+]
