@@ -5,12 +5,18 @@ const PropertyCard = ({ PropertyInfo }) => {
         <div>
             <div className="card w-[410px] h-[542px] bg-base-100 shadow-xl rounded-lg relative hover:bottom-2">
                 <figure><img className="w-full" src={PropertyInfo.Property_img} alt="Shoes" /></figure>
-                <div className="card-body">
+                <div className="card-body pt-5">
+                    <div className="flex gap-3 items-center mb-3">
+                        <img className="w-[44px] h-[44px] rounded-full" src={PropertyInfo.Agent_img} alt="" />
+                        <div>
+                            <p className="text-[#0b2c3d] font-bold">{PropertyInfo.Agent_name}</p>
+                            <div className="badge text-white bg-[#0b2c3d]">{PropertyInfo.verification_status}</div>
+                        </div>
+                    </div>
                     <div className="flex justify-between">
                         <h2 className="card-title text-[#0b2c3d] text-[26px] lora-font">
                             {PropertyInfo.Property_title}
                         </h2>
-                        <div className="badge text-white bg-[#0b2c3d] mt-[5px]">{PropertyInfo.verification_status}</div>
                     </div>
                     <p>{PropertyInfo.Property_location}</p>
                     <div className="divider my-[8px]"></div>

@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import CommonHeading from "../../../../Shared/CommonHeading/CommonHeading";
+import useProperty from "../../../../../hooks/useProperty";
 
 const Advertisement = () => {
-    const [allProperties, setAllProperties] = useState([])
+    const [allProperties] = useProperty()
     const advertisementProperties = allProperties.slice(0, 6)
-    useEffect(() => {
-        fetch('property.json')
-            .then(res => res.json())
-            .then(data => setAllProperties(data))
-    }, [])
+    // const [allProperties, setAllProperties] = useState([])
+    // const advertisementProperties = allProperties.slice(0, 6)
+    // useEffect(() => {
+    //     fetch('property.json')
+    //         .then(res => res.json())
+    //         .then(data => setAllProperties(data))
+    // }, [])
 
 
     // console.log('all properties', allProperties)
