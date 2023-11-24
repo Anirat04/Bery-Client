@@ -1,0 +1,74 @@
+[
+    {
+        "_id": "1",
+        "Reviewer_name": "Alice Johnson",
+        "Reviewer_img": "https://i.ibb.co/WFFXy0m/person2.webp",
+        "Review_description": "We absolutely love our luxurious downtown condo! The views are breathtaking, and the modern amenities make urban living a delight. Highly recommended!",
+        "Review_time": "2023-01-15",
+        "Rating": 5
+    },
+    {
+        "_id": "2",
+        "Reviewer_name": "Bob Smith",
+        "Reviewer_img": "https://i.ibb.co/RHB41Jp/person4.webp",
+        "Review_description": "Our family is thrilled with our new suburban home! The peaceful neighborhood and scenic views provide the perfect environment for family gatherings. Thank you!",
+        "Review_time": "2023-02-20",
+        "Rating": 4
+    },
+    {
+        "_id": "3",
+        "Reviewer_name": "Claire Davis",
+        "Reviewer_img": "https://i.ibb.co/WFFXy0m/person2.webp",
+        "Review_description": "The ocean view paradise exceeded our expectations! Living by the beach is a dream come true. The tranquility and beauty are unparalleled. Highly satisfied!",
+        "Review_time": "2023-03-10",
+        "Rating": 5
+    },
+    {
+        "_id": "4",
+        "Reviewer_name": "David Turner",
+        "Reviewer_img": "https://i.ibb.co/RHB41Jp/person4.webp",
+        "Review_description": "Our mountain retreat is a serene haven! Escaping the city to this peaceful cabin was the best decision. Surrounded by nature, it's truly a rejuvenating experience.",
+        "Review_time": "2023-04-05",
+        "Rating": 4
+    },
+    {
+        "_id": "5",
+        "Reviewer_name": "Eva Adams",
+        "Reviewer_img": "https://i.ibb.co/WFFXy0m/person2.webp",
+        "Review_description": "Penthouse living at its finest! The panoramic views, high-end finishes, and sophisticated lifestyle make this property exceptional. Living here is pure luxury!",
+        "Review_time": "2023-05-22",
+        "Rating": 5
+    },
+    {
+        "_id": "6",
+        "Reviewer_name": "Frank White",
+        "Reviewer_img": "https://i.ibb.co/RHB41Jp/person4.webp",
+        "Review_description": "Our lakeside retreat is a tranquil paradise! The private lakefront adds to the beauty, and it's the perfect place to unwind. Nature's beauty at its best!",
+        "Review_time": "2023-06-18",
+        "Rating": 4
+    },
+    {
+        "_id": "7",
+        "Reviewer_name": "Grace Turner",
+        "Reviewer_img": "https://i.ibb.co/WFFXy0m/person2.webp",
+        "Review_description": "The luxury golf villa is a dream home! Elegance and recreational amenities blend perfectly. Living here feels like a perpetual vacation. Highly recommended!",
+        "Review_time": "2023-07-12",
+        "Rating": 5
+    },
+    {
+        "_id": "8",
+        "Reviewer_name": "Henry Walker",
+        "Reviewer_img": "https://i.ibb.co/RHB41Jp/person4.webp",
+        "Review_description": "The charming historic home is a gem! Classic architecture with modern comforts provides a unique living experience. Living in the historic district is a delight!",
+        "Review_time": "2023-08-28",
+        "Rating": 4
+    },
+    {
+        "_id": "9",
+        "Reviewer_name": "Isabella Adams",
+        "Reviewer_img": "https://i.ibb.co/WFFXy0m/person2.webp",
+        "Review_description": "Our riverside luxury estate is a haven of sophistication! The calming sounds of the river and lush surroundings create an oasis of luxury. Delighted with our choice!",
+        "Review_time": "2023-09-14",
+        "Rating": 5
+    }
+]

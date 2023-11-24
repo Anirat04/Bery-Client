@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import CommonHeading from "../../../../Shared/CommonHeading/CommonHeading";
-import PropertyCard from "../../../../Shared/PropertyCard/PropertyCard";
 
 const Advertisement = () => {
     const [allProperties, setAllProperties] = useState([])
