@@ -5,7 +5,7 @@ const useProperty = () => {
     // ToDo: get loading state from provider
     // const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch('property.json')
+        fetch('http://localhost:5000/property')
             .then(res => res.json())
             .then(data => {
                 setAllProperties(data)
@@ -17,3 +17,7 @@ const useProperty = () => {
 };
 
 export default useProperty;
+
+// Navbar Color: #e9f1ff
+// Main color: #0b2c3d
+// Sub color: #b39359

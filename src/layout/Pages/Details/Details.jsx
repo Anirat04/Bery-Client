@@ -1,6 +1,11 @@
+import { useLoaderData } from "react-router-dom";
 
 
 const Details = () => {
+
+    const propertyDetails = useLoaderData()
+    console.log(propertyDetails)
+
     return (
         <div>
             <div className="hero h-[513px]" style={{ backgroundImage: 'url(https://i.ibb.co/5YrgV3F/bg-1.png)' }}>
@@ -34,36 +39,52 @@ const Details = () => {
                                 <div className="relative h-64 sm:h-80 lg:h-full">
                                     <img
                                         alt="House"
-                                        src="https://i.ibb.co/bsWwFh1/post1.webp"
+                                        src={propertyDetails.Property_img}
                                         className="absolute inset-0 h-full w-full object-cover"
                                     />
                                 </div>
                             </div>
 
+                            {/* details section */}
                             <div className="relative flex items-center bg-gray-100">
                                 <span
                                     className="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"
                                 ></span>
 
                                 <div className="p-8 sm:p-16 lg:p-24">
-                                    <h2 className="text-2xl font-bold sm:text-3xl">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore,
-                                        debitis.
+                                    <div className="flex items-center gap-4">
+                                        <img className="w-[70px] h-[70px] rounded-full" src={propertyDetails.Agent_img} alt="" />
+                                        <div>
+                                            <p className="text-[#b39359] text-[22px] lora-font font-semibold">{propertyDetails.Agent_name}</p>
+                                            <div className="badge text-white bg-[#0b2c3d]">{propertyDetails.verification_status}</div>
+                                        </div>
+                                    </div>
+                                    <h2 className="text-2xl lora-font font-semibold sm:text-4xl mt-[20px]">
+                                        {propertyDetails.Property_title}
                                     </h2>
+                                    <p className="text-gray-400 text-[14px] underline-offset-1">{propertyDetails.Property_location}</p>
 
-                                    <p className="mt-4 text-gray-600">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid,
-                                        molestiae! Quidem est esse numquam odio deleniti, beatae, magni
-                                        dolores provident quaerat totam eos, aperiam architecto eius quis
-                                        quibusdam fugiat dicta.
+                                    <p className="mt-4 text-gray-600 karla-font text-[20px]">
+                                        <span className="font-bold">Description:</span>
+                                        <br />
+                                        {propertyDetails.description}
                                     </p>
+                                    <p className="text-[24px] text-[#0b2c3d] lora-font font-semibold mt-5">Price: {propertyDetails.Price_range}</p>
 
-                                    <a
-                                        href="#"
-                                        className="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-                                    >
-                                        Get in Touch
-                                    </a>
+                                    <div className="flex gap-5">
+                                        <a
+                                            href="#"
+                                            className="mt-8 inline-block rounded border border-[#0b2c3d] bg-[#0b2c3d] px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white hover:bg-[#b39359] focus:outline-none focus:ring active:text-indigo-500"
+                                        >
+                                            Add to wishlist
+                                        </a>
+                                        <a
+                                            href="#"
+                                            className="mt-8 inline-block rounded border border-[#0b2c3d] bg-[#0b2c3d] px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white hover:bg-[#b39359] focus:outline-none focus:ring active:text-indigo-500"
+                                        >
+                                            Review
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

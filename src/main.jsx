@@ -27,9 +27,9 @@ const router = createBrowserRouter([
         element: <AllProperties></AllProperties>
       },
       {
-        path: "details/:id",
+        path: "all_properties/details/:id",
         element: <Details></Details>,
-        // loader: ({params}) => fetch('property.json')
+        loader: ({params}) => fetch(`http://localhost:5000/property/${params.id}`)
       }
     ]
   },

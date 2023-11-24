@@ -1,6 +1,7 @@
 // import { useEffect, useState } from "react";
 import CommonHeading from "../../../../Shared/CommonHeading/CommonHeading";
 import useProperty from "../../../../../hooks/useProperty";
+import { Link } from "react-router-dom";
 
 const Advertisement = () => {
     const [allProperties] = useProperty()
@@ -41,7 +42,9 @@ const Advertisement = () => {
                                         <p className="text-[18px] text-[#0b2c3d] lora-font font-semibold">Price: {property.Price_range}</p>
                                     </div>
                                     <div className="">
-                                        <button className="btn bg-[#0b2c3d] text-white">Details</button>
+                                        <Link to={`all_properties/details/${property._id}`}>
+                                            <button className="btn bg-[#0b2c3d] text-white">Details</button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

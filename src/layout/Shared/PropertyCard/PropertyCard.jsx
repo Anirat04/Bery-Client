@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const PropertyCard = ({ PropertyInfo }) => {
     console.log('this is', PropertyInfo)
@@ -24,8 +25,10 @@ const PropertyCard = ({ PropertyInfo }) => {
                         <div>
                             <p className="text-[18px] text-[#0b2c3d] lora-font font-semibold">Price: {PropertyInfo.Price_range}</p>
                         </div>
-                        <div className="">
-                            <button className="btn bg-[#0b2c3d] text-white">Details</button>
+                        <div>
+                            <Link to={`details/${PropertyInfo._id}`}>
+                                <button className="btn bg-[#0b2c3d] text-white">Details</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
