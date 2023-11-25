@@ -1,10 +1,67 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { ProviderContext } from "../../../Provider/Provider";
+import Swal from "sweetalert2";
+import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const Details = () => {
-
+    const { user } = useContext(ProviderContext)
+    const axiosSecure = useAxiosSecure()
     const propertyDetails = useLoaderData()
     console.log(propertyDetails)
+
+    const handleAddToWishlist = (wishItem) => {
+        const {_id, Agent_img, Agent_name, Price_range, Property_img, Property_location, Property_title, description, verification_status} = wishItem
+        if (user && user.email) {
+            // ToDo: send data to the wish database
+            const wishItem = {
+                propertyID: _id,
+                wishUserEmail: user.email,
+                Agent_img,
+                Agent_name,
+                Price_range,
+                Property_img,
+                Property_location,
+                Property_title,
+                description,
+                verification_status
+            }
+            axiosSecure.post('/wishlist', wishItem)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Added to cart list",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    // refetch data to update the cart length
+                    // refetch()
+                }
+            })
+        }
+        else {
+            Swal.fire({
+                title: "You are not logged in",
+                text: "Login to add this property to your wishlist",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Login to proceed",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // send the user to the login page by navigate
+                    // navigate('/login')
+                }
+            });
+        }
+        console.log(wishItem)
+    }
 
     return (
         <div>
@@ -73,6 +130,7 @@ const Details = () => {
 
                                     <div className="flex gap-5">
                                         <a
+                                            onClick={() => handleAddToWishlist(propertyDetails)}
                                             href="#"
                                             className="mt-8 inline-block rounded border border-[#0b2c3d] bg-[#0b2c3d] px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white hover:bg-[#b39359] focus:outline-none focus:ring active:text-indigo-500"
                                         >
