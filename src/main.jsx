@@ -14,6 +14,7 @@ import Details from './layout/Pages/Details/Details.jsx';
 import Provider from './Provider/Provider.jsx';
 import Login from './Login/Login.jsx';
 import Register from './Register/Register.jsx';
+import DashboardLayout from './DashboardLayout/DashboardLayout.jsx';
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,13 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: 'dashboard',
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

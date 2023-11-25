@@ -20,8 +20,8 @@ import { ProviderContext } from '../../../Provider/Provider';
 import './Navbar.css'
 // import black sbg logo
 import blackLogo from '../../../assets/BeryImg/logo.svg'
-const pages = ['Home', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// const pages = ['Home', 'Pricing', 'Blog'];
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 function Navbar() {
