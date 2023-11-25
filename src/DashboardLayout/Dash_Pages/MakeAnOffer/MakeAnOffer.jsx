@@ -1,29 +1,119 @@
 import { useParams } from "react-router-dom";
 import useWishData from "../../../hooks/useWishData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
 const MakeAnOffer = () => {
     const [wishData] = useWishData();
     const currentOffer = useParams()
+    const axiosSecure = useAxiosSecure()
+    // const [, refetch] = useWishData()
+    // State variables to store the extracted values
+    const [minOffer, setMinOffer] = useState();
+    const [maxOffer, setMaxOffer] = useState();
     let offerData = wishData.filter(data => data._id === currentOffer.id)
     offerData = offerData[0]
-    // console.log('make offer data', wishData)
-    // console.log('make offer data', currentOffer)
-    // console.log('make offer data', offerData)
+
+    // -------- (Getting the exact number from the data avoid $ and -) -----------
+    const priceRange = offerData?.Price_range ?? "";
+    // Splitting the string into an array
+    const [minAmount, maxAmount] = priceRange.split(' - ');
+    // Removing commas and converting to numbers
+    const minAmountNumber = minAmount ? parseFloat(minAmount.replace(/[^0-9.]/g, '')) : null;
+    const maxAmountNumber = maxAmount ? parseFloat(maxAmount.replace(/[^0-9.]/g, '')) : null;
+    useEffect(() => {
+        // Only set the state if the values are different
+        if (minAmountNumber !== minOffer) {
+            setMinOffer(minAmountNumber);
+        }
+        if (maxAmountNumber !== maxOffer) {
+            setMaxOffer(maxAmountNumber);
+        }
+    }, [minAmountNumber, maxAmountNumber, minOffer, maxOffer]);
+    useEffect(() => {
+        // You can use minOffer and maxOffer here as needed
+        console.log("Min Offer:", minOffer);
+        console.log("Max Offer:", maxOffer);
+    }, [minOffer, maxOffer]);
+    // -------- (Getting the exact number from the data avoid $ and -) ----------
+
+
+    const handleMakeOffer = e => {
+        e.preventDefault();
+        const form = e.target;
+        const Buying_date = form.Buying_date?.value
+        const offered_Price = form?.offered_Price?.value
+        const offeredProperty = {
+            wishID: offerData._id,
+            propertyID: offerData.propertyID,
+            Property_img: offerData.Property_img,
+            Property_title: offerData.Property_title,
+            Property_location: offerData.Property_location,
+            Agent_name: offerData.Agent_name,
+            BuyerEmail: offerData.wishUserEmail,
+            BuyerName: offerData.wishUserName,
+            Buying_date,
+            offered_Price,
+        }
+
+
+        // const checkAmount = offeredProperty.offered_Price 
+
+        if (offered_Price >= minOffer && offered_Price <= maxOffer) {
+            console.log('yes')
+            axiosSecure.post('/property_bought', offeredProperty)
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.insertedId) {
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "Added to product bought list",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        // refetch data to update the cart length
+                        // refetch()
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                title: "You are not logged in",
+                text: "Login to add this property to your wishlist",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Login to proceed",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // send the user to the login page by navigate
+                    // navigate('/login')
+                }
+            });
+        }
+        // console.log('OfferedProperty info', offeredProperty)
+    }
+
+
+
     return (
         <div className="ml-[300px] w-full min-h-screen">
             <section className="bg-gray-100 h-full">
                 <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                     <div className="">
                         <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-                            <form action="" className="space-y-4">
-                                <h1 className="text-[#0b2c3d] text-center text-[36px] font-semibold">Property price: </h1>
+                            <form onSubmit={handleMakeOffer} className="space-y-4">
+                                <h1 className="text-[#0b2c3d] text-center text-[36px] font-semibold">Property price: {offerData?.Price_range} $</h1>
                                 <div>
                                     <label >Property Title</label>
                                     <input
                                         className="w-full rounded-lg border border-gray-400 p-3 text-sm"
-                                        placeholder="Property Title"
+                                        placeholder={offerData?.Property_title}
+                                        disabled
                                         type="text"
                                         name="Property_title"
                                     />
@@ -34,18 +124,20 @@ const MakeAnOffer = () => {
                                         <label>Agent Name</label>
                                         <input
                                             className="w-full rounded-lg border border-gray-400 p-3 text-sm"
-                                            placeholder="Agent name"
+                                            placeholder={offerData?.Agent_name}
+                                            disabled
                                             type="text"
-                                            name="email"
+                                            name="Agent_name"
                                         />
                                     </div>
                                     <div>
                                         <label>Location</label>
                                         <input
                                             className="w-full rounded-lg border border-gray-400 p-3 text-sm"
-                                            placeholder="location"
+                                            placeholder={offerData?.Property_location}
+                                            disabled
                                             type="text"
-                                            name="email"
+                                            name="Property_location"
                                         />
                                     </div>
 
@@ -53,28 +145,31 @@ const MakeAnOffer = () => {
                                         <label>Buyer Name</label>
                                         <input
                                             className="w-full rounded-lg border border-gray-400 p-3 text-sm"
-                                            placeholder="Email address"
+                                            placeholder={offerData?.wishUserName}
+                                            disabled
                                             type="text"
                                             name="BuyerName"
                                         />
                                     </div>
                                     <div>
-                                        <label>Buyer Mail</label>
+                                        <label>Buyer email</label>
                                         <input
                                             className="w-full rounded-lg border border-gray-400 p-3 text-sm"
-                                            placeholder="your email"
+                                            placeholder={offerData?.wishUserEmail}
+                                            disabled
                                             type="email"
-                                            name="email"
+                                            name="BuyerEmail"
                                         />
                                     </div>
 
                                     <div>
                                         <label>Buying date</label>
                                         <input
-                                            className="w-full rounded-lg border border-gray-400 p-3 text-sm"
+                                            className="w-full rounded-lg border border-gray-400 p-3 text-sm text-black"
                                             placeholder="Phone Number"
                                             type="date"
-                                            name="Date"
+                                            // value=''
+                                            name="Buying_date"
                                         />
                                     </div>
                                     <div>
@@ -83,7 +178,7 @@ const MakeAnOffer = () => {
                                             className="w-full rounded-lg border border-gray-400 p-3 text-sm"
                                             placeholder="$"
                                             type="number"
-                                            name="offeredPrice"
+                                            name="offered_Price"
                                         />
                                     </div>
                                 </div>
