@@ -16,7 +16,7 @@ const Dash_Nav = () => {
                         <li>
                             <NavLink
                                 to='/dashboard/user_profile'
-                                className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
+                                className="block rounded-lg  px-4 py-2 text-sm font-medium text-gray-700"
                             >
                                 My Profile
                             </NavLink>

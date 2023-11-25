@@ -1,3 +1,5 @@
+
+import { Link } from "react-router-dom";
 import useWishData from "../../../../hooks/useWishData";
 import PropertyCard from "../../../../layout/Shared/PropertyCard/PropertyCard";
 
@@ -9,7 +11,7 @@ const Wishlist = () => {
             <div className="grid">
                 {
                     wishData.map(data => (
-                        <div key={data._id} className=" card card-side mb-6 max-h-[380px] bg-base-100 shadow-xl rounded-lg relative hover:bottom-2">
+                        <div key={data._id} className=" card card-side mb-6 lg:w-[600px] xl:min-w-[900px] mx-auto max-h-[380px] bg-base-100 shadow-xl rounded-lg relative hover:bottom-2">
 
                             <figure><img className="w-full h-full" src={data.Property_img} alt="Shoes" /></figure>
                             <div className="card-body pt-5">
@@ -37,18 +39,14 @@ const Wishlist = () => {
                                 </div> */}
                                 </div>
                                 <form className="flex flex-col justify-between">
-                                    <div>
-                                        {/* <p className="text-[18px] text-[#0b2c3d] lora-font font-semibold">Price: {data.Price_range}</p> */}
-                                        <input
-                                            type="text"
-                                            placeholder="Make an offer"
-                                            className="min-w-full h-[40px] border border-[#0b2c3d] rounded-md pl-5 mb-5"
-
-                                        />
-                                    </div>
                                     <div className="flex gap-5 justify-center">
                                         {/* <Link to={`details/${data._id}`}> */}
-                                        <button className="btn w-1/2 bg-[#0b2c3d] text-white">Make an offer</button>
+                                        <Link
+                                            className="btn w-1/2 bg-[#0b2c3d] text-white"
+                                            to={`makeOffer/${data._id}`}
+                                        >
+                                            <button>Make an offer</button>
+                                        </Link>
                                         <button className="btn w-1/2 bg-[#0b2c3d] text-white">Remove</button>
                                         {/* </Link> */}
                                     </div>

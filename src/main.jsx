@@ -22,6 +22,7 @@ import {
   // useQuery,
 } from '@tanstack/react-query'
 import Wishlist from './DashboardLayout/Dash_Pages/UserDashboard/Wishlist/Wishlist.jsx';
+import MakeAnOffer from './DashboardLayout/Dash_Pages/MakeAnOffer/MakeAnOffer.jsx';
 
 const queryClient = new QueryClient()
 
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: 'wishlist',
         element:<Wishlist></Wishlist>
+      },
+      {
+        path: 'wishlist/makeOffer/:id',
+        element: <MakeAnOffer></MakeAnOffer>
       }
     ]
   }

@@ -21,6 +21,7 @@ const Details = () => {
             const wishItem = {
                 propertyID: _id,
                 wishUserEmail: user.email,
+                wishUserName: user.displayName,
                 Agent_img,
                 Agent_name,
                 Price_range,
