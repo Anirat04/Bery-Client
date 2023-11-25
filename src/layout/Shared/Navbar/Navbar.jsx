@@ -1,4 +1,4 @@
-import * as React from 'react';
+// import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,7 +12,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+// import contexts
+import { useContext } from 'react';
+import { ProviderContext } from '../../../Provider/Provider';
 // import Nav css
 import './Navbar.css'
 // import black sbg logo
@@ -22,7 +25,16 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 function Navbar() {
+    const { user, logOut } = useContext(ProviderContext)
 
+    // this event handler is to log out users from the server
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log('user logged out')
+            })
+            .catch(error => console.log('error logging out', error))
+    }
 
     const navlinks = <>
         <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='/'>Home</NavLink>
@@ -151,14 +163,32 @@ function Navbar() {
 
                     {/* user logo */}
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton
-                                //   onClick={handleOpenUserMenu}
-                                sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
+                        <Tooltip title="Open settings" className='flex'>
+                            <Box className={`${user? 'border border-[#0b2c3d] rounded-full pr-3 mr-3' : ''}`}>
+                                <IconButton
+                                    //   onClick={handleOpenUserMenu}
+                                    className='flex gap-2'
+                                    sx={{ p: 0, }}>
+                                    <Avatar alt="Remy Sharp" src={user?.photoURL} />
+                                    <Typography>{user?.displayName}</Typography>
+                                </IconButton>
+                            </Box>
+                            <Link to={user ? '/' : 'login'}>
+                                <Button
+                                    onClick={handleLogOut}
+                                    sx={{
+                                        backgroundColor: '#0b2c3d',
+                                        '&:hover': {
+                                            backgroundColor: '#b39359'
+                                        }
+                                    }}
+                                    variant="contained"
+                                >
+                                    {user ? 'Log Out' : 'Login'}
+                                </Button>
+                            </Link>
                         </Tooltip>
-                        <Menu
+                        {/* <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"
                             //   anchorEl={anchorElUser}
@@ -174,14 +204,10 @@ function Navbar() {
                         //   open={Boolean(anchorElUser)}
                         //   onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting}
-                                // onClick={handleCloseUserMenu}
-                                >
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
+                            <MenuItem>
+                                <Typography textAlign="center">Profile</Typography>
+                            </MenuItem>
+                        </Menu> */}
                     </Box>
                 </Toolbar>
             </Container>
