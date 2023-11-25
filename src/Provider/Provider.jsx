@@ -51,7 +51,7 @@ const Provider = ({ children }) => {
 
 
     // sign in user through email and password
-    const signIn = (email, password) => {
+    const signInUser = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
@@ -83,7 +83,7 @@ const Provider = ({ children }) => {
         user,
         loading,
         createUser,
-        signIn,
+        signInUser,
         signInGoogle,
         logOut,
     }

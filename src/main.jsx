@@ -21,6 +21,7 @@ import {
   QueryClientProvider,
   // useQuery,
 } from '@tanstack/react-query'
+import Wishlist from './DashboardLayout/Dash_Pages/UserDashboard/Wishlist/Wishlist.jsx';
 
 const queryClient = new QueryClient()
 
@@ -57,7 +58,10 @@ const router = createBrowserRouter([
     path: 'dashboard',
     element: <DashboardLayout></DashboardLayout>,
     children: [
-
+      {
+        path: 'wishlist',
+        element:<Wishlist></Wishlist>
+      }
     ]
   }
 ]);

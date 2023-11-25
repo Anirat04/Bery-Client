@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const PropertyCard = ({ PropertyInfo }) => {
     console.log('this is', PropertyInfo)
+    // const location = useLocation()
+    // const pathname = location.pathname.includes('wishlist')
+    // console.log('location', location)
+    // console.log('pathname', pathname)
     return (
         <div>
             <div className="card w-[410px] h-[542px] bg-base-100 shadow-xl rounded-lg relative hover:bottom-2">

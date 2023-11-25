@@ -20,12 +20,15 @@ import { ProviderContext } from '../../../Provider/Provider';
 import './Navbar.css'
 // import black sbg logo
 import blackLogo from '../../../assets/BeryImg/logo.svg'
+import useWishData from '../../../hooks/useWishData';
 // const pages = ['Home', 'Pricing', 'Blog'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 function Navbar() {
     const { user, logOut } = useContext(ProviderContext)
+    const [wishlist] = useWishData()
+    console.log( 'wishlist',wishlist)
 
     // this event handler is to log out users from the server
     const handleLogOut = () => {
@@ -41,13 +44,13 @@ function Navbar() {
         <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='all_properties'>All Properties</NavLink>
         <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='dashboard'>Dashboard</NavLink>
         <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='login'>Login</NavLink>
-        {/* <NavLink className='text-[20px] font-extrabold hover:text-[#EEFF25]' to='our-shop/salad'>
+        <NavLink className='text-[20px] font-extrabold hover:text-[#EEFF25]' to='dashboard/wishlist'>
             <button className="btn">
                 Inbox
-                <div className="badge badge-secondary">+{cart.length}</div>
+                <div className="badge badge-secondary">+{wishlist?.length}</div>
             </button>
         </NavLink>
-        {
+        {/* {
             user ? <button onClick={handleLogOut} className="btn">LogOut</button>
                 : <NavLink className='text-[20px] font-extrabold hover:text-[#EEFF25]' to='login'>Login</NavLink>
         } */}

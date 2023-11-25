@@ -4,12 +4,14 @@ import { ProviderContext } from "../../../Provider/Provider";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useWishData from "../../../hooks/useWishData";
 
 
 const Details = () => {
     const { user } = useContext(ProviderContext)
     const axiosSecure = useAxiosSecure()
     const propertyDetails = useLoaderData()
+    const [, refetch] = useWishData()
     console.log(propertyDetails)
 
     const handleAddToWishlist = (wishItem) => {
@@ -40,7 +42,7 @@ const Details = () => {
                         timer: 1500
                     });
                     // refetch data to update the cart length
-                    // refetch()
+                    refetch()
                 }
             })
         }
