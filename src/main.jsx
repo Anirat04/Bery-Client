@@ -25,6 +25,7 @@ import Wishlist from './DashboardLayout/Dash_Pages/UserDashboard/Wishlist/Wishli
 import MakeAnOffer from './DashboardLayout/Dash_Pages/MakeAnOffer/MakeAnOffer.jsx';
 import Property_bought from './DashboardLayout/Dash_Pages/UserDashboard/Property_bought/Property_bought.jsx';
 import UserProfile from './DashboardLayout/Dash_Pages/UserDashboard/userProfile/userProfile.jsx';
+import ManageUsers from './DashboardLayout/Dash_Pages/AdminDashboard/ManageUsers/ManageUsers.jsx';
 
 const queryClient = new QueryClient()
 
@@ -76,6 +77,13 @@ const router = createBrowserRouter([
       {
         path: 'user_profile',
         element: <UserProfile></UserProfile>
+      },
+
+
+      // Admin routes starts here
+      {
+        path: 'manage_users',
+        element: <ManageUsers></ManageUsers>
       }
     ]
   }

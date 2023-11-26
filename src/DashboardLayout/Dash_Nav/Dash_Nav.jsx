@@ -17,40 +17,81 @@ const Dash_Nav = () => {
                     </span>
 
                     <ul className="mt-6 space-y-1">
-                        <li>
-                            <NavLink
-                                to='/dashboard/user_profile'
-                                className="block rounded-lg  px-4 py-2 text-sm font-medium text-gray-700"
-                            >
-                                My Profile
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to='/dashboard/wishlist'
-                                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                            >
-                                Wishlist
-                            </NavLink>
-                        </li>
+                        {
+                            isAdmin ? <>
+                                <li>
+                                    <NavLink
+                                        to='/dashboard/admin_profile'
+                                        className="block rounded-lg  px-4 py-2 text-sm font-medium text-gray-700"
+                                    >
+                                        Admin Profile
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to='/dashboard/manage_properties'
+                                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                                    >
+                                        Manage Properties
+                                    </NavLink>
+                                </li>
 
-                        <li>
-                            <NavLink
-                                to='/dashboard/property_bought'
-                                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                            >
-                                Property bought
-                            </NavLink>
-                        </li>
+                                <li>
+                                    <NavLink
+                                        to='/dashboard/manage_users'
+                                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                                    >
+                                        Manage Users
+                                    </NavLink>
+                                </li>
 
-                        <li>
-                            <NavLink
-                                to='/dashboard/myReviews'
-                                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                            >
-                                My Reviews
-                            </NavLink>
-                        </li>
+                                <li>
+                                    <NavLink
+                                        to='/dashboard/manage_reviews'
+                                        className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                                    >
+                                        Manage Reviews
+                                    </NavLink>
+                                </li>
+                            </>
+                                :
+                                <>
+                                    <li>
+                                        <NavLink
+                                            to='/dashboard/user_profile'
+                                            className="block rounded-lg  px-4 py-2 text-sm font-medium text-gray-700"
+                                        >
+                                            My Profile
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to='/dashboard/wishlist'
+                                            className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                                        >
+                                            Wishlist
+                                        </NavLink>
+                                    </li>
+
+                                    <li>
+                                        <NavLink
+                                            to='/dashboard/property_bought'
+                                            className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                                        >
+                                            Property bought
+                                        </NavLink>
+                                    </li>
+
+                                    <li>
+                                        <NavLink
+                                            to='/dashboard/myReviews'
+                                            className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                                        >
+                                            My Reviews
+                                        </NavLink>
+                                    </li>
+                                </>
+                        }
 
                         {/* <li>
                             <details className="group [&_summary::-webkit-details-marker]:hidden">
