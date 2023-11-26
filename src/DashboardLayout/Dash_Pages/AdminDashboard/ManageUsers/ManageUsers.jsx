@@ -7,7 +7,7 @@ const ManageUsers = () => {
     const [allUsers, refetch] = useAllUsers()
     const axiosSecure = useAxiosSecure()
     console.log(allUsers)
-
+    // make the user Admin
     const handleMakeAdmin = oneUser => {
         axiosSecure.patch(`/users/admin/${oneUser._id}`)
             .then(res => {
@@ -24,7 +24,56 @@ const ManageUsers = () => {
                 }
             })
     }
+    // make the user Agent
+    const handleMakeAgent = oneUser => {
+        axiosSecure.patch(`/users/agent/${oneUser._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${oneUser.name} is Agent Now`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
 
+    // delete any user
+    const handleDeleteUser = oneUser => {
+        console.log(oneUser)
+        Swal.fire({
+            title: "Want to delete??",
+            text: "If you want to delete, click Confirm",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Confirm",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const res = await axiosSecure.delete(`/users/${oneUser._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: `${oneUser.name} has been deleted`,
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    })
+                console.log(res.data)
+                // send the user to the login page by navigate
+                // navigate('/login')
+            }
+        });
+    }
 
 
     return (
@@ -64,13 +113,28 @@ const ManageUsers = () => {
                                         }
                                     </td>
                                     <td className="text-center">
-                                        <button className="btn">Agent</button>
+                                        {
+                                            oneUser.role === 'agent' ? 'Agent'
+                                                :
+                                                <button
+                                                    onClick={() => handleMakeAgent(oneUser)}
+                                                    className="btn"
+                                                >
+                                                    Agent
+                                                </button>
+                                        }
                                     </td>
                                     <td className="text-center">
-                                        <button className="btn">Fraud</button>
+                                        {
+                                            oneUser.role === 'agent' ?
+                                                <button className="btn">Make as Fraud</button>
+                                                :
+                                                <></>
+                                        }
                                     </td>
                                     <td className="text-center">
                                         <button
+                                            onClick={() => handleDeleteUser(oneUser)}
                                             className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm text-blue-500 shadow-sm focus:relative"
                                         >
                                             <svg
