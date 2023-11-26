@@ -2,9 +2,33 @@
 import { Link } from "react-router-dom";
 import useWishData from "../../../../hooks/useWishData";
 import PropertyCard from "../../../../layout/Shared/PropertyCard/PropertyCard";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const Wishlist = () => {
     const [wishData] = useWishData()
+    const axiosSecure = useAxiosSecure()
+
+    const handleDeleteWish = (wishID) => {
+        console.log(wishID)
+        Swal.fire({
+            title: "Want to delete??",
+            text: "If you want to delete, click Confirm",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Confirm",
+        }).then( async (result) => {
+            if (result.isConfirmed) {
+                const res = await axiosSecure.delete(`/wishlist/${wishID}`)
+                console.log(res.data)
+                // send the user to the login page by navigate
+                // navigate('/login')
+            }
+        });
+    }
+
     return (
         <div className=" w-full bg-base-200 p-[60px] ml-[300px]">
             <h1>this is wishlist {wishData.length}</h1>
@@ -38,7 +62,7 @@ const Wishlist = () => {
                                     <button className="btn bg-[#0b2c3d] text-white">Remove</button>
                                 </div> */}
                                 </div>
-                                <form className="flex flex-col justify-between">
+                                <div className="flex flex-col justify-between">
                                     <div className="flex gap-5 justify-center">
                                         {/* <Link to={`details/${data._id}`}> */}
                                         <Link
@@ -47,10 +71,10 @@ const Wishlist = () => {
                                         >
                                             <button>Make an offer</button>
                                         </Link>
-                                        <button className="btn w-1/2 bg-[#0b2c3d] text-white">Remove</button>
+                                        <button onClick={() => handleDeleteWish(data._id)} className="btn w-1/2 bg-[#0b2c3d] text-white">Remove</button>
                                         {/* </Link> */}
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     ))

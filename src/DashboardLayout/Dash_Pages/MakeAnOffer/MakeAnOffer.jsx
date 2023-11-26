@@ -56,6 +56,7 @@ const MakeAnOffer = () => {
             BuyerName: offerData.wishUserName,
             Buying_date,
             offered_Price,
+            status: 'pending'
         }
 
 
@@ -70,7 +71,7 @@ const MakeAnOffer = () => {
                         Swal.fire({
                             position: "center",
                             icon: "success",
-                            title: "Added to product bought list",
+                            title: "Offer sent successfully",
                             showConfirmButton: false,
                             timer: 1500
                         });
@@ -81,8 +82,8 @@ const MakeAnOffer = () => {
         }
         else {
             Swal.fire({
-                title: "You are not logged in",
-                text: "Login to add this property to your wishlist",
+                title: "Offer denied",
+                text: `Thank you for your offer! However, this product's price range is between ${offerData?.Price_range}. Your current offer falls outside this range. Please adjust accordingly`,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
@@ -194,12 +195,12 @@ const MakeAnOffer = () => {
                                     ></textarea>
                                 </div> */}
 
-                                <div className="mt-4">
+                                <div className="mt-4 flex justify-center">
                                     <button
                                         type="submit"
-                                        className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+                                        className="inline-block w-full hover:w-[250px] transition-all rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
                                     >
-                                        Send Enquiry
+                                        Make an offer
                                     </button>
                                 </div>
                             </form>
