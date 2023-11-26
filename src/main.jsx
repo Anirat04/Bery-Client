@@ -24,6 +24,7 @@ import {
 import Wishlist from './DashboardLayout/Dash_Pages/UserDashboard/Wishlist/Wishlist.jsx';
 import MakeAnOffer from './DashboardLayout/Dash_Pages/MakeAnOffer/MakeAnOffer.jsx';
 import Property_bought from './DashboardLayout/Dash_Pages/UserDashboard/Property_bought/Property_bought.jsx';
+import UserProfile from './DashboardLayout/Dash_Pages/UserDashboard/userProfile/userProfile.jsx';
 
 const queryClient = new QueryClient()
 
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: 'property_bought',
         element: <Property_bought></Property_bought>
+      },
+      {
+        path: 'user_profile',
+        element: <UserProfile></UserProfile>
       }
     ]
   }

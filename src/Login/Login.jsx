@@ -7,11 +7,13 @@ import { Helmet } from "react-helmet";
 import Lottie from "lottie-react";
 import LogReg from "./LogReg"
 import { ProviderContext } from "../Provider/Provider";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 
 
 
 const Login = () => {
+    const axiosPublic = useAxiosPublic()
     const [loginError, setLoginError] = useState("")
     const { signInUser, signInGoogle } = useContext(ProviderContext)
     const Navigate = useNavigate()
@@ -26,6 +28,7 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result);
+
                 e.target.reset();
                 Navigate('/')
                 Swal.fire(
@@ -46,6 +49,15 @@ const Login = () => {
         signInGoogle()
             .then(result => {
                 console.log("user of google: ", result.user)
+                const userInfo = {
+                    name: result.user.displayName,
+                    email: result.user?.email,
+                    role: 'regular'
+                }
+                axiosPublic.post('/users', userInfo)
+                .then(res => {
+                    console.log(res.data)
+                })
                 Navigate('/')
                 Swal.fire(
                     'You have successfully signed in with Google',

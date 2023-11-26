@@ -8,9 +8,11 @@ import Lottie from "lottie-react";
 // import LogReg from "./LogReg.json"
 import RegisterAnim from "./RegisterAnim.json"
 import { ProviderContext } from "../Provider/Provider";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 
 const Register = () => {
+    const axiosPublic = useAxiosPublic()
     const { createUser } = useContext(ProviderContext)
     const Navigate = useNavigate()
     const [regError, setRegError] = useState("")
@@ -31,13 +33,25 @@ const Register = () => {
             createUser(email, password, displayName, photoURL)
                 .then(result => {
                     console.log(result.user)
-                    e.target.reset();
-                    Navigate("/")
-                    Swal.fire(
-                        'Registration completed successfully by Email',
-                        "Enjoy our services don't forget to feedback",
-                        'success'
-                    )
+                    const userInfo = {
+                        name: displayName,
+                        email: email,
+                        role: 'regular'
+                    }
+                    axiosPublic.post('/users', userInfo)
+                        .then(res => {
+                            if (res.data.insertedId) {
+                                console.log('user added to the database')
+                                e.target.reset();
+                                Navigate("/")
+                                Swal.fire(
+                                    'Registration completed successfully by Email',
+                                    "Enjoy our services don't forget to feedback",
+                                    'success'
+                                )
+                            }
+                        })
+
                 })
                 .catch(error => {
                     console.log("error: ", error);
