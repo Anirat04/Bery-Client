@@ -23,6 +23,7 @@ import {
 } from '@tanstack/react-query'
 import Wishlist from './DashboardLayout/Dash_Pages/UserDashboard/Wishlist/Wishlist.jsx';
 import MakeAnOffer from './DashboardLayout/Dash_Pages/MakeAnOffer/MakeAnOffer.jsx';
+import Property_bought from './DashboardLayout/Dash_Pages/UserDashboard/Property_bought/Property_bought.jsx';
 
 const queryClient = new QueryClient()
 
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: 'wishlist/makeOffer/:id',
         element: <MakeAnOffer></MakeAnOffer>
+      },
+      {
+        path: 'property_bought',
+        element: <Property_bought></Property_bought>
       }
     ]
   }
