@@ -2,6 +2,10 @@ import { NavLink } from "react-router-dom";
 
 
 const Dash_Nav = () => {
+
+    // ToDo: get is admin value from database
+    const isAdmin = true;
+
     return (
         <div className="w-[300px] fixed">
             <div className="flex h-screen flex-col justify-between border-e bg-white">
