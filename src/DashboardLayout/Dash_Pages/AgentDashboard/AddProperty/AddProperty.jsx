@@ -4,7 +4,8 @@ import { ProviderContext } from "../../../../Provider/Provider";
 
 const AddProperty = () => {
     const { user } = useContext(ProviderContext)
-    const { register, handleSubmit } = useForm()
+    // const { register, handleSubmit, watch } = useForm();
+    const { register, handleSubmit, setValue } = useForm()
     const onSubmit = (data) => {
         console.log(data)
     }
@@ -55,7 +56,7 @@ const AddProperty = () => {
                                     className="w-full rounded-lg border border-gray-400 p-3 text-sm"
                                     placeholder={user?.email}
                                     disabled
-                                    type="email"
+                                    type="text"
                                     {...register("Agent_email")}
                                 />
                             </div>
@@ -100,8 +101,13 @@ const AddProperty = () => {
                                     {...register("Max_price")}
                                 />
                             </div>
+                            {/* Property_img */}
                             <div>
-                                <input type="file" className="file-input file-input-bordered w-full" />
+                                <input
+                                    type="file"
+                                    className="file-input file-input-bordered w-full"
+                                    {...register("Property_img")}
+                                />
                             </div>
 
                         </div>
@@ -121,9 +127,13 @@ const AddProperty = () => {
                         <div className="mt-4 flex justify-center">
                             <button
                                 type="submit"
+                                onClick={() => {
+                                    setValue("Agent_name", `${user?.displayName}`)
+                                    setValue("Agent_email", `${user?.email}`)
+                                }}
                                 className="inline-block w-full hover:w-[250px] transition-all rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
                             >
-                                Make an offer
+                                Add Property
                             </button>
                         </div>
                     </form>
