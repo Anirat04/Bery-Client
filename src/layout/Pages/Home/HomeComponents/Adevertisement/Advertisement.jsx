@@ -1,4 +1,4 @@
-// import { useEffect, useState } from "react";
+
 import CommonHeading from "../../../../Shared/CommonHeading/CommonHeading";
 import useProperty from "../../../../../hooks/useProperty";
 import { Link } from "react-router-dom";
@@ -6,17 +6,6 @@ import { Link } from "react-router-dom";
 const Advertisement = () => {
     const [allProperties] = useProperty()
     const advertisementProperties = allProperties.slice(0, 6)
-    // const [allProperties, setAllProperties] = useState([])
-    // const advertisementProperties = allProperties.slice(0, 6)
-    // useEffect(() => {
-    //     fetch('property.json')
-    //         .then(res => res.json())
-    //         .then(data => setAllProperties(data))
-    // }, [])
-
-
-    // console.log('all properties', allProperties)
-    // console.log('Advertisement properties', advertisementProperties)
     return (
         <div className="max-w-[1320px] mx-auto">
             <CommonHeading

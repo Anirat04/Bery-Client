@@ -29,6 +29,7 @@ import ManageUsers from './DashboardLayout/Dash_Pages/AdminDashboard/ManageUsers
 import AddFood from './DashboardLayout/Dash_Pages/AgentDashboard/AddProperty/AddProperty.jsx';
 import AddProperty from './DashboardLayout/Dash_Pages/AgentDashboard/AddProperty/AddProperty.jsx';
 import AdminRoute from './PrivateRoutes/AdminRoute.jsx';
+import MyAddedProperties from './DashboardLayout/Dash_Pages/AgentDashboard/MyAddedProperties/MyAddedProperties.jsx';
 
 const queryClient = new QueryClient()
 
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
       {
         path: 'add_property',
         element: <AddProperty></AddProperty>
+      },
+      {
+        path: 'myAddedProperties',
+        element: <MyAddedProperties></MyAddedProperties>
       },
 
       // Admin routes starts here

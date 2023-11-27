@@ -1,13 +1,48 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form"
 import { ProviderContext } from "../../../../Provider/Provider";
+import useAxiosPublic from "../../../../hooks/useAxiosPublic";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 const AddProperty = () => {
     const { user } = useContext(ProviderContext)
     // const { register, handleSubmit, watch } = useForm();
     const { register, handleSubmit, setValue } = useForm()
-    const onSubmit = (data) => {
+    const axiosPublic =useAxiosPublic()
+    const axiosSecure  = useAxiosSecure()
+    const onSubmit = async (data) => {
         console.log(data)
+        // now have to upload the image in imgbb and get an url from the imgbb
+        const imageFile = {image: data.Property_img[0]}
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        });
+        if(res.data.success) {
+            // posting the data to the server with photo url
+            const propertyItem = {
+                Agent_name: data.Agent_name,
+                Agent_email: data.Agent_email,
+                Agent_img: user.photoURL,
+                Property_title: data.Property_title,
+                Property_location: data.Property_location,
+                Min_price: parseInt(data.Min_price),
+                Max_price: parseInt(data.Max_price),
+                description: data.description,
+                Property_img: res.data.data.display_url,
+                verification_status: 'Not verified',
+            }
+            const propertyRes = await axiosSecure.post('/property', propertyItem)
+            console.log(propertyRes.data)
+            if(propertyRes.data.insertedId){
+                // show success
+            }
+        }
+        console.log(res.data)
     }
     //     _id": "6560fdf86c8e29cfe58f1570",
     // "Property_img": "https://i.ibb.co/GRCDc4r/properties1.webp",
