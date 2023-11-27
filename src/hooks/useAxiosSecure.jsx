@@ -28,10 +28,11 @@ const useAxiosSecure = () => {
         // console.log('status error in the interceptors:', status)
         // for 401 or 403 logout the user and move the user to the login page
         if (loading) {
-            return <div className='max-w-[200px] mx-auto mt-[200px]'><span className="loading loading-dots loading-lg"></span></div>
+            return <span className="loading loading-spinner text-error"></span>
             // return <progress className="progress w-56"></progress>
         }
         if (status === 401 || status === 403) {
+
             await logOut();
             navigate('/login')
         }
