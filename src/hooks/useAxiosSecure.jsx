@@ -8,7 +8,7 @@ const axiosSecure = axios.create({
 })
 const useAxiosSecure = () => {
     const navigate = useNavigate()
-    const {logOut} = useContext(ProviderContext)
+    const { logOut, loading } = useContext(ProviderContext)
     // request interceptor to add authorization header for every secure call to the API 
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token')
@@ -23,11 +23,15 @@ const useAxiosSecure = () => {
     // intercepts 401 and 403  status
     axiosSecure.interceptors.response.use(function (response) {
         return response;
-    },async(error) => {
+    }, async (error) => {
         const status = error.response.status
         // console.log('status error in the interceptors:', status)
         // for 401 or 403 logout the user and move the user to the login page
-        if(status === 401 || status === 403){
+        if (loading) {
+            return <div className='max-w-[200px] mx-auto mt-[200px]'><span className="loading loading-dots loading-lg"></span></div>
+            // return <progress className="progress w-56"></progress>
+        }
+        if (status === 401 || status === 403) {
             await logOut();
             navigate('/login')
         }
