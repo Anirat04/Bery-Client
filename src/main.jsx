@@ -26,6 +26,9 @@ import MakeAnOffer from './DashboardLayout/Dash_Pages/MakeAnOffer/MakeAnOffer.js
 import Property_bought from './DashboardLayout/Dash_Pages/UserDashboard/Property_bought/Property_bought.jsx';
 import UserProfile from './DashboardLayout/Dash_Pages/UserDashboard/userProfile/userProfile.jsx';
 import ManageUsers from './DashboardLayout/Dash_Pages/AdminDashboard/ManageUsers/ManageUsers.jsx';
+import AddFood from './DashboardLayout/Dash_Pages/AgentDashboard/AddProperty/AddProperty.jsx';
+import AddProperty from './DashboardLayout/Dash_Pages/AgentDashboard/AddProperty/AddProperty.jsx';
+import AdminRoute from './PrivateRoutes/AdminRoute.jsx';
 
 const queryClient = new QueryClient()
 
@@ -79,11 +82,16 @@ const router = createBrowserRouter([
         element: <UserProfile></UserProfile>
       },
 
+      // Agent routes starts here
+      {
+        path: 'add_property',
+        element: <AddProperty></AddProperty>
+      },
 
       // Admin routes starts here
       {
         path: 'manage_users',
-        element: <ManageUsers></ManageUsers>
+        element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
       }
     ]
   }

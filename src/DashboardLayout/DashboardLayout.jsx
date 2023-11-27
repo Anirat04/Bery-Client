@@ -4,7 +4,7 @@ import Navbar from "../layout/Shared/Navbar/Navbar";
 
 const DashboardLayout = () => {
     return (
-        <div className="bg-base-300">
+        <div className="">
             <div className="flex w-auto mx-auto">
                 <Dash_Nav></Dash_Nav>
                 <Outlet></Outlet>
