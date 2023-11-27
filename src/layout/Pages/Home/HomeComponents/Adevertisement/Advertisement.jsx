@@ -16,7 +16,7 @@ const Advertisement = () => {
 
 
     // console.log('all properties', allProperties)
-    console.log('Advertisement properties', advertisementProperties)
+    // console.log('Advertisement properties', advertisementProperties)
     return (
         <div className="max-w-[1320px] mx-auto">
             <CommonHeading

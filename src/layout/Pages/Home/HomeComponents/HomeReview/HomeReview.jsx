@@ -21,7 +21,7 @@ const HomeReview = () => {
             .then(res => res.json())
             .then(data => setReviewsData(data))
     }, [])
-    console.log(reviewsData);
+    // console.log(reviewsData);
 
     return (
         <div className='max-w-[1170px] mx-auto my-[200px]'>

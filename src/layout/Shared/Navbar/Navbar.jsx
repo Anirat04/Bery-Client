@@ -28,7 +28,7 @@ import useWishData from '../../../hooks/useWishData';
 function Navbar() {
     const { user, logOut } = useContext(ProviderContext)
     const [wishlist] = useWishData()
-    console.log( 'wishlist',wishlist)
+    // console.log( 'wishlist',wishlist)
 
     // this event handler is to log out users from the server
     const handleLogOut = () => {

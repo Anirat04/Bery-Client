@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
+import useAdmin from "../../hooks/useAdmin";
 
 
 const Dash_Nav = () => {
 
     // ToDo: get is admin value from database
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
     return (
         <div className="w-[300px] fixed">
