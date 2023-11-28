@@ -37,7 +37,7 @@ const Property_bought = () => {
                                     <div>
                                         {
                                             PropertyInfo.status === 'accepted' ?
-                                                <Link to={`details/${PropertyInfo._id}`}>
+                                                <Link to={`payment/${PropertyInfo._id}`}>
                                                     <button className="btn bg-[#0b2c3d] text-white w-full">Pay</button>
                                                 </Link>
                                                 :

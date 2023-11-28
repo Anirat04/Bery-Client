@@ -8,6 +8,7 @@ const useAgent = () => {
     const axiosSecure = useAxiosSecure()
     const {data: isAgent, isPending: isAgentLoading} = useQuery({
         queryKey: [user?.email, 'isAgent'],
+        enabled: !!user?.email && !!localStorage.getItem('access-token'),
         queryFn: async() => {
             const res = await axiosSecure.get(`/allUsers/agent/${user?.email}`)
             console.log(res.data);

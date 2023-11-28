@@ -32,6 +32,7 @@ import AdminRoute from './PrivateRoutes/AdminRoute.jsx';
 import MyAddedProperties from './DashboardLayout/Dash_Pages/AgentDashboard/MyAddedProperties/MyAddedProperties.jsx';
 import UpdateProperty from './DashboardLayout/Dash_Pages/AgentDashboard/MyAddedProperties/UpdateProperty.jsx';
 import RequestedProperties from './DashboardLayout/Dash_Pages/AgentDashboard/RequestedProperties/RequestedProperties.jsx';
+import Payment from './DashboardLayout/Dash_Pages/Pyment/Payment.jsx';
 
 const queryClient = new QueryClient()
 
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: 'user_profile',
         element: <UserProfile></UserProfile>
+      },
+      {
+        path: 'property_bought/payment/:id',
+        element: <Payment></Payment>
       },
 
       // Agent routes starts here

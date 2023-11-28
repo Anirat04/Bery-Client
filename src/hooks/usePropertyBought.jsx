@@ -5,9 +5,10 @@ import { ProviderContext } from "../Provider/Provider";
 
 const usePropertyBought = () => {
     const axiosSecure = useAxiosSecure()
-    const { user } = useContext(ProviderContext)
+    const { user, loading } = useContext(ProviderContext)
     const { refetch, data: propertyBought = [] } = useQuery({
         queryKey: ['propertyBought', user?.email],
+        enabled: !loading && !!user?.email,
         queryFn: async () => {
             const res = await axiosSecure.get(`/property_bought?email=${user?.email}`)
             return res.data;
