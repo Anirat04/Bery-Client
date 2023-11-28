@@ -41,7 +41,21 @@ const Property_bought = () => {
                                                     <button className="btn bg-[#0b2c3d] text-white w-full">Pay</button>
                                                 </Link>
                                                 :
-                                                <></>
+                                                <>
+                                                    {
+                                                        PropertyInfo?.transactionID ?
+                                                            <p className="text-center flex justify-center items-center h-[48px] rounded-lg bg-[#0b2c3d] text-white w-full">TXID: {PropertyInfo?.transactionID}</p>
+                                                            :
+                                                            <>
+                                                                {
+                                                                    PropertyInfo?.status === 'rejected' ?
+                                                                        <p className="text-center flex justify-center items-center h-[48px] rounded-lg bg-[#0b2c3d] text-white w-full">Offer is Rejected</p>
+                                                                        :
+                                                                        <p className="text-center flex justify-center items-center h-[48px] rounded-lg bg-[#0b2c3d] text-white w-full">Offer Pending</p>
+                                                                }
+                                                            </>
+                                                    }
+                                                </>
                                         }
                                     </div>
                                 </div>
