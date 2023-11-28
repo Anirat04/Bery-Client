@@ -4,7 +4,7 @@ import { ProviderContext } from "../Provider/Provider";
 import { Navigate, useLocation } from "react-router-dom";
 
 // ToDo: this component will be used as admin route protection
-const AdminRoute = (children) => {
+const AdminRoute = ({children}) => {
     const { user, loading } = useContext(ProviderContext)
     const [isAdmin, isAdminLoading] = useAdmin()
     const location = useLocation()
