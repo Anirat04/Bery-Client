@@ -1,10 +1,6 @@
 import { useParams } from "react-router-dom";
 import useProperty from "../../../../hooks/useProperty";
-
-
-// import { useContext } from "react";
 import { useForm } from "react-hook-form"
-// import { ProviderContext } from "../../../../Provider/Provider";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
@@ -24,7 +20,7 @@ const UpdateProperty = () => {
     console.log('Updating property', updateProperty)
 
     // react-hook-form
-    const { register, handleSubmit, setValue } = useForm()
+    const { register, handleSubmit} = useForm()
     const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
     const onSubmit = (data) => {
@@ -71,11 +67,6 @@ const UpdateProperty = () => {
                 }
             }
         });
-
-
-        // now have to upload the image in imgbb and get an url from the imgbb
-
-
     }
     return (
         <div className="pl-[300px] w-full min-h-screen">
@@ -186,13 +177,9 @@ const UpdateProperty = () => {
                         <div className="mt-4 flex justify-center">
                             <button
                                 type="submit"
-                                // onClick={() => {
-                                //     setValue("Agent_name", `${updateProperty?.Agent_name}`)
-                                //     setValue("Agent_email", `${updateProperty?.Agent_email}`)
-                                // }}
                                 className="inline-block w-full hover:w-[250px] transition-all rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
                             >
-                                Add Property
+                                Update Property
                             </button>
                         </div>
                     </form>

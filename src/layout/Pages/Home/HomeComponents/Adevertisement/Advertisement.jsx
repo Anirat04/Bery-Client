@@ -28,7 +28,7 @@ const Advertisement = () => {
                                 <div className="divider my-[8px]"></div>
                                 <div className="flex justify-between items-center">
                                     <div>
-                                        <p className="text-[18px] text-[#0b2c3d] lora-font font-semibold">Price: {property.Price_range}</p>
+                                        <p className="text-[18px] text-[#0b2c3d] lora-font font-semibold">Price: ${property.Min_price} - ${property.Max_price}</p>
                                     </div>
                                     <div className="">
                                         <Link to={`all_properties/details/${property._id}`}>

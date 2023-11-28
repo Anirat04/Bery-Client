@@ -31,6 +31,7 @@ import AddProperty from './DashboardLayout/Dash_Pages/AgentDashboard/AddProperty
 import AdminRoute from './PrivateRoutes/AdminRoute.jsx';
 import MyAddedProperties from './DashboardLayout/Dash_Pages/AgentDashboard/MyAddedProperties/MyAddedProperties.jsx';
 import UpdateProperty from './DashboardLayout/Dash_Pages/AgentDashboard/MyAddedProperties/UpdateProperty.jsx';
+import RequestedProperties from './DashboardLayout/Dash_Pages/AgentDashboard/RequestedProperties/RequestedProperties.jsx';
 
 const queryClient = new QueryClient()
 
@@ -97,7 +98,10 @@ const router = createBrowserRouter([
         path: 'myAddedProperties/updateProperty/:id',
         element: <UpdateProperty></UpdateProperty>
       },
-
+      {
+        path: 'requestedProperties',
+        element: <RequestedProperties></RequestedProperties>
+      },
       // Admin routes starts here
       {
         path: 'manage_users',

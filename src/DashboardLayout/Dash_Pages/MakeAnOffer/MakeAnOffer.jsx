@@ -11,33 +11,13 @@ const MakeAnOffer = () => {
     const axiosSecure = useAxiosSecure()
     // const [, refetch] = useWishData()
     // State variables to store the extracted values
-    const [minOffer, setMinOffer] = useState();
-    const [maxOffer, setMaxOffer] = useState();
+    // const [minOffer, setMinOffer] = useState();
+    // const [maxOffer, setMaxOffer] = useState();
     let offerData = wishData.filter(data => data._id === currentOffer.id)
     offerData = offerData[0]
-
-    // -------- (Getting the exact number from the data avoid $ and -) -----------
-    const priceRange = offerData?.Price_range ?? "";
-    // Splitting the string into an array
-    const [minAmount, maxAmount] = priceRange.split(' - ');
-    // Removing commas and converting to numbers
-    const minAmountNumber = minAmount ? parseFloat(minAmount.replace(/[^0-9.]/g, '')) : null;
-    const maxAmountNumber = maxAmount ? parseFloat(maxAmount.replace(/[^0-9.]/g, '')) : null;
-    useEffect(() => {
-        // Only set the state if the values are different
-        if (minAmountNumber !== minOffer) {
-            setMinOffer(minAmountNumber);
-        }
-        if (maxAmountNumber !== maxOffer) {
-            setMaxOffer(maxAmountNumber);
-        }
-    }, [minAmountNumber, maxAmountNumber, minOffer, maxOffer]);
-    useEffect(() => {
-        // You can use minOffer and maxOffer here as needed
-        console.log("Min Offer:", minOffer);
-        console.log("Max Offer:", maxOffer);
-    }, [minOffer, maxOffer]);
-    // -------- (Getting the exact number from the data avoid $ and -) ----------
+    console.log(offerData)
+    const minOffer =  offerData?.Min_price
+    const maxOffer = offerData?.Max_price
 
 
     const handleMakeOffer = e => {
@@ -52,6 +32,8 @@ const MakeAnOffer = () => {
             Property_title: offerData.Property_title,
             Property_location: offerData.Property_location,
             Agent_name: offerData.Agent_name,
+            Agent_email: offerData.Agent_email,
+            Agent_img: offerData.Agent_img,
             BuyerEmail: offerData.wishUserEmail,
             BuyerName: offerData.wishUserName,
             Buying_date,
@@ -83,7 +65,7 @@ const MakeAnOffer = () => {
         else {
             Swal.fire({
                 title: "Offer denied",
-                text: `Thank you for your offer! However, this product's price range is between ${offerData?.Price_range}. Your current offer falls outside this range. Please adjust accordingly`,
+                text: `Thank you for your offer! However, this product's price range is between $${offerData?.Min_price} - $${offerData?.Max_price}. Your current offer falls outside this range. Please adjust accordingly`,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
@@ -108,7 +90,7 @@ const MakeAnOffer = () => {
                     <div className="">
                         <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
                             <form onSubmit={handleMakeOffer} className="space-y-4">
-                                <h1 className="text-[#0b2c3d] text-center text-[36px] font-semibold">Property price: {offerData?.Price_range} $</h1>
+                                <h1 className="text-[#0b2c3d] text-center text-[36px] font-semibold">Property price: ${offerData?.Min_price} - ${offerData?.Max_price}</h1>
                                 <div>
                                     <label >Property Title</label>
                                     <input

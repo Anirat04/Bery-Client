@@ -27,7 +27,7 @@ const PropertyCard = ({ PropertyInfo }) => {
                     <div className="divider my-[8px]"></div>
                     <div className="flex justify-between items-center">
                         <div>
-                            <p className="text-[18px] text-[#0b2c3d] lora-font font-semibold">Price: {PropertyInfo.Price_range}</p>
+                            <p className="text-[18px] text-[#0b2c3d] lora-font font-semibold">Price: ${PropertyInfo.Min_price} - ${PropertyInfo.Max_price}</p>
                         </div>
                         <div>
                             <Link to={`details/${PropertyInfo._id}`}>

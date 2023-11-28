@@ -15,7 +15,7 @@ const Details = () => {
     console.log(propertyDetails)
 
     const handleAddToWishlist = (wishItem) => {
-        const {_id, Agent_img, Agent_name, Price_range, Property_img, Property_location, Property_title, description, verification_status} = wishItem
+        const {_id, Agent_img, Agent_name, Agent_email, Property_img, Property_location, Property_title, Min_price, Max_price, description, verification_status} = wishItem
         if (user && user.email) {
             // ToDo: send data to the wish database
             const wishItem = {
@@ -24,10 +24,12 @@ const Details = () => {
                 wishUserName: user.displayName,
                 Agent_img,
                 Agent_name,
-                Price_range,
+                Agent_email,
                 Property_img,
                 Property_location,
                 Property_title,
+                Min_price,
+                Max_price,
                 description,
                 verification_status
             }
@@ -38,7 +40,7 @@ const Details = () => {
                     Swal.fire({
                         position: "center",
                         icon: "success",
-                        title: "Added to cart list",
+                        title: "Added to Wishlist",
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -129,7 +131,7 @@ const Details = () => {
                                         <br />
                                         {propertyDetails.description}
                                     </p>
-                                    <p className="text-[24px] text-[#0b2c3d] lora-font font-semibold mt-5">Price: {propertyDetails.Price_range}</p>
+                                    <p className="text-[24px] text-[#0b2c3d] lora-font font-semibold mt-5">Price: ${propertyDetails.Min_price} - ${propertyDetails.Max_price}</p>
 
                                     <div className="flex gap-5">
                                         <a

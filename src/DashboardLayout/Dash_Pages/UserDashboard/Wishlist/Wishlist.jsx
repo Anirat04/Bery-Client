@@ -56,7 +56,7 @@ const Wishlist = () => {
 
                                 <div className="flex justify-center items-center">
                                     <div>
-                                        <p className="text-[24px] text-[#0b2c3d] lora-font font-semibold">Price: {data.Price_range}</p>
+                                        <p className="text-[24px] text-[#0b2c3d] lora-font font-semibold">Price: ${data.Min_price} - ${data.Max_price}</p>
                                     </div>
                                     {/* <div>
                                     <button className="btn bg-[#0b2c3d] text-white">Remove</button>

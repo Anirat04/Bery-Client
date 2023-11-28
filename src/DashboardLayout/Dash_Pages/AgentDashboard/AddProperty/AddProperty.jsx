@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { ProviderContext } from "../../../../Provider/Provider";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -40,6 +41,11 @@ const AddProperty = () => {
             console.log(propertyRes.data)
             if(propertyRes.data.insertedId){
                 // show success
+                Swal.fire({
+                    title: "Property Added!",
+                    text: "Your Property has been added, Wait for Admin verification to add the property at the website",
+                    icon: "success"
+                });
             }
         }
         console.log(res.data)
