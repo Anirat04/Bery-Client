@@ -30,6 +30,7 @@ import AddFood from './DashboardLayout/Dash_Pages/AgentDashboard/AddProperty/Add
 import AddProperty from './DashboardLayout/Dash_Pages/AgentDashboard/AddProperty/AddProperty.jsx';
 import AdminRoute from './PrivateRoutes/AdminRoute.jsx';
 import MyAddedProperties from './DashboardLayout/Dash_Pages/AgentDashboard/MyAddedProperties/MyAddedProperties.jsx';
+import UpdateProperty from './DashboardLayout/Dash_Pages/AgentDashboard/MyAddedProperties/UpdateProperty.jsx';
 
 const queryClient = new QueryClient()
 
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path: 'myAddedProperties',
         element: <MyAddedProperties></MyAddedProperties>
+      },
+      {
+        path: 'myAddedProperties/updateProperty/:id',
+        element: <UpdateProperty></UpdateProperty>
       },
 
       // Admin routes starts here

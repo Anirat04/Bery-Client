@@ -68,7 +68,7 @@ const MyAddedProperties = () => {
                                 <div className="divider my-[8px]"></div>
                                 <div className="flex justify-between items-center gap-4">
                                     <div className="w-1/2">
-                                        <Link to={`details/${agentProperty._id}`}>
+                                        <Link to={`updateProperty/${agentProperty._id}`}>
                                             <button className="btn bg-[#0b2c3d] text-white w-full">Update</button>
                                         </Link>
                                     </div>
