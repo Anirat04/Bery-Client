@@ -38,6 +38,7 @@ import MyReviews from './DashboardLayout/Dash_Pages/UserDashboard/MyReviews/MyRe
 import ManageReviews from './DashboardLayout/Dash_Pages/AgentDashboard/ManageReviews/ManageReviews.jsx';
 import Error from './Error/Error.jsx';
 import MySoldProperties from './DashboardLayout/Dash_Pages/AgentDashboard/MySoldProperties/MySoldProperties.jsx';
+import PrivateRoutes from './PrivateRoutes/PrivateRoutes.jsx';
 
 const queryClient = new QueryClient()
 
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
       {
         path: "all_properties/details/:id",
         element: <Details></Details>,
-        loader: ({ params }) => fetch(`http://localhost:5000/property/${params.id}`)
+        loader: ({ params }) => fetch(`https://bery-server.vercel.app/property/${params.id}`)
       },
       {
         path: 'login',
@@ -72,7 +73,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'dashboard',
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
     children: [
       {
         path: 'wishlist',
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
 
       // Agent routes starts here
       {
+        path: 'agent_profile',
+        element: <UserProfile></UserProfile>
+      },
+      {
         path: 'add_property',
         element: <AddProperty></AddProperty>
       },
@@ -122,7 +127,7 @@ const router = createBrowserRouter([
       // Admin routes starts here
       {
         path: 'admin_profile',
-        element: <UserProfile></UserProfile>
+        element: <AdminRoute><UserProfile></UserProfile></AdminRoute>
       },
       {
         path: 'manage_users',

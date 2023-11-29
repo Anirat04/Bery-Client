@@ -44,12 +44,12 @@ function Navbar() {
         <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='all_properties'>All Properties</NavLink>
         <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='dashboard'>Dashboard</NavLink>
         <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='login'>Login</NavLink>
-        <NavLink className='text-[20px] font-extrabold hover:text-[#EEFF25]' to='dashboard/wishlist'>
+        {/* <NavLink className='text-[20px] font-extrabold hover:text-[#EEFF25]' to='dashboard/wishlist'>
             <button className="btn">
                 Inbox
                 <div className="badge badge-secondary">+{wishlist?.length}</div>
             </button>
-        </NavLink>
+        </NavLink> */}
         {/* {
             user ? <button onClick={handleLogOut} className="btn">LogOut</button>
                 : <NavLink className='text-[20px] font-extrabold hover:text-[#EEFF25]' to='login'>Login</NavLink>

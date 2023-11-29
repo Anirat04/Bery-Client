@@ -6,11 +6,14 @@ import { ProviderContext } from "../../Provider/Provider";
 
 
 const Dash_Nav = () => {
-    const { user } = useContext(ProviderContext)
+    const { user, loading } = useContext(ProviderContext)
     // ToDo: get is admin value from database
-    const [isAdmin] = useAdmin();
-    const [isAgent] = useAgent()
+    const [isAdmin, isAdminLoading] = useAdmin();
+    const [isAgent, isAgentLoading] = useAgent()
     console.log(isAgent)
+    if (loading || isAdminLoading || isAgentLoading) {
+        return 
+    }
     return (
         <div className="w-[300px] fixed">
             <div className="flex h-screen flex-col justify-between border-e bg-white">

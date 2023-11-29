@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
 // import { ProviderContext } from "../../Provider/Provider";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 import Lottie from "lottie-react";
@@ -17,6 +17,9 @@ const Login = () => {
     const [loginError, setLoginError] = useState("")
     const { signInUser, signInGoogle } = useContext(ProviderContext)
     const Navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || "/"
 
     const handleLogin = e => {
         e.preventDefault();
@@ -28,15 +31,13 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result);
-
                 e.target.reset();
-                Navigate('/')
                 Swal.fire(
                     'You have successfully signed in with Email',
                     "Enjoy you meal don't forget to feedback",
                     'success'
                 )
-
+                Navigate(from, { replace: true })
             })
             .catch(err => {
                 console.log("error: ", err);
@@ -55,15 +56,15 @@ const Login = () => {
                     role: 'regular'
                 }
                 axiosPublic.post('/users', userInfo)
-                .then(res => {
-                    console.log(res.data)
-                })
-                Navigate('/')
+                    .then(res => {
+                        console.log(res.data)
+                    })
                 Swal.fire(
                     'You have successfully signed in with Google',
                     "Enjoy our services don't forget to feedback",
                     'success'
                 )
+                Navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log("error of google user: ", error)
@@ -73,7 +74,7 @@ const Login = () => {
     return (
         <div className="min-h-screen pb-[100px]">
             <Helmet>
-                <title>ShareFood | Login
+                <title>Bery | Login
                 </title>
             </Helmet>
             <div className="hero pt-[50px]">
