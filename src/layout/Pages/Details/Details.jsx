@@ -5,17 +5,20 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useWishData from "../../../hooks/useWishData";
+import ReviewForm from "./ReviewForm";
+import DetailsPageReview from "./DetailsPageReview/DetailsPageReview";
 
 
 const Details = () => {
+
     const { user } = useContext(ProviderContext)
     const axiosSecure = useAxiosSecure()
     const propertyDetails = useLoaderData()
     const [, refetch] = useWishData()
-    console.log(propertyDetails)
+    // console.log(propertyDetails)
 
     const handleAddToWishlist = (wishItem) => {
-        const {_id, Agent_img, Agent_name, Agent_email, Property_img, Property_location, Property_title, Min_price, Max_price, description, verification_status} = wishItem
+        const { _id, Agent_img, Agent_name, Agent_email, Property_img, Property_location, Property_title, Min_price, Max_price, description, verification_status } = wishItem
         if (user && user.email) {
             // ToDo: send data to the wish database
             const wishItem = {
@@ -34,20 +37,20 @@ const Details = () => {
                 verification_status
             }
             axiosSecure.post('/wishlist', wishItem)
-            .then(res => {
-                console.log(res.data)
-                if (res.data.insertedId) {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "Added to Wishlist",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    // refetch data to update the cart length
-                    refetch()
-                }
-            })
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.insertedId) {
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "Added to Wishlist",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        // refetch data to update the cart length
+                        refetch()
+                    }
+                })
         }
         else {
             Swal.fire({
@@ -81,19 +84,6 @@ const Details = () => {
                 </div>
             </div>
             <div>
-                {/* <section className="py-6  dark:text-gray-50">
-                    <div className="max-w-[1320px] mx-auto flex gap-5">
-                        <div className="flex w-1/2">
-                            <img src="https://source.unsplash.com/random/302x302/" alt="" className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-1 md:row-start-3 aspect-square" />
-                        </div>
-                        <div className="grid grid-cols-2 grid-rows-2 w-1/2 gap-5">
-                            <img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://i.ibb.co/x2DgyJM/01.png" />
-                            <img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://i.ibb.co/4K0nsrt/03.png" />
-                            <img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://i.ibb.co/CJfWqhV/05.png" />
-                            <img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://i.ibb.co/ZBydNz1/07.png" />
-                        </div>
-                    </div>
-                </section> */}
                 <section>
                     <div className="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
                         <div className="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
@@ -143,10 +133,12 @@ const Details = () => {
                                         </a>
                                         <a
                                             href="#"
+                                            onClick={() => document.getElementById('my_modal_1').showModal()}
                                             className="mt-8 inline-block rounded border border-[#0b2c3d] bg-[#0b2c3d] px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white hover:bg-[#b39359] focus:outline-none focus:ring active:text-indigo-500"
                                         >
                                             Review
                                         </a>
+                                        <ReviewForm propertyDetails={propertyDetails}></ReviewForm>
                                     </div>
                                 </div>
                             </div>
@@ -154,6 +146,7 @@ const Details = () => {
                     </div>
                 </section>
             </div>
+            <DetailsPageReview propertyID={propertyDetails._id}></DetailsPageReview>
         </div>
     );
 };

@@ -81,7 +81,7 @@ const Dash_Nav = () => {
                                             </li>
                                             <li>
                                                 <NavLink
-                                                    to='/dashboard/manage_properties'
+                                                    to='/dashboard/manageProperties'
                                                     className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                                                 >
                                                     Manage Properties
@@ -99,7 +99,7 @@ const Dash_Nav = () => {
 
                                             <li>
                                                 <NavLink
-                                                    to='/dashboard/manage_reviews'
+                                                    to='/dashboard/manageReviews'
                                                     className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                                                 >
                                                     Manage Reviews

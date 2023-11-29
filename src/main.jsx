@@ -33,6 +33,9 @@ import MyAddedProperties from './DashboardLayout/Dash_Pages/AgentDashboard/MyAdd
 import UpdateProperty from './DashboardLayout/Dash_Pages/AgentDashboard/MyAddedProperties/UpdateProperty.jsx';
 import RequestedProperties from './DashboardLayout/Dash_Pages/AgentDashboard/RequestedProperties/RequestedProperties.jsx';
 import Payment from './DashboardLayout/Dash_Pages/Pyment/Payment.jsx';
+import ManageProperties from './DashboardLayout/Dash_Pages/AdminDashboard/ManageProperties/ManageProperties.jsx';
+import MyReviews from './DashboardLayout/Dash_Pages/UserDashboard/MyReviews/MyReviews.jsx';
+import ManageReviews from './DashboardLayout/Dash_Pages/AgentDashboard/ManageReviews/ManageReviews.jsx';
 
 const queryClient = new QueryClient()
 
@@ -112,6 +115,18 @@ const router = createBrowserRouter([
         path: 'manage_users',
         element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
         // element: <ManageUsers></ManageUsers>
+      },
+      {
+        path: 'manageProperties',
+        element: <ManageProperties></ManageProperties>
+      },
+      {
+        path: 'myReviews',
+        element: <MyReviews></MyReviews>
+      },
+      {
+        path: 'manageReviews',
+        element: <ManageReviews></ManageReviews>
       }
     ]
   }
