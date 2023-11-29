@@ -112,6 +112,10 @@ const router = createBrowserRouter([
       },
       // Admin routes starts here
       {
+        path: 'admin_profile',
+        element: <UserProfile></UserProfile>
+      },
+      {
         path: 'manage_users',
         element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
         // element: <ManageUsers></ManageUsers>

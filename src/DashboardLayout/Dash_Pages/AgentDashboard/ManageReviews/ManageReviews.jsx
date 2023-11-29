@@ -54,7 +54,18 @@ const ManageReviews = () => {
                                     key={review._id}
                                     className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
                                 >
-                                    <p className="font-semibold">Agent: {review.Agent_name}</p>
+                                    <div className="flex items-center gap-4">
+                                        <img
+                                            alt="Man"
+                                            src={review.Reviewer_img}
+                                            className="h-14 w-14 rounded-full object-cover border"
+                                        />
+
+                                        <div>
+                                            <p className="mt-0.5 text-lg font-medium text-gray-900">{review.Reviewer_name}</p>
+                                            <p className=" text-gray-400 font-bold text-[14px]">{review.Reviewer_email}</p>
+                                        </div>
+                                    </div>
 
                                     <div>
 
