@@ -154,6 +154,7 @@ const UpdateProperty = () => {
                             <div>
                                 <input
                                     type="file"
+                                    required
                                     className="file-input file-input-bordered w-full"
                                     {...register("Property_img")}
                                 />

@@ -86,7 +86,7 @@ const ReviewForm = ({ propertyDetails }) => {
             })
 
 
-
+        document.getElementById("my_modal_1").close()
         console.log(reviewItem)
         form.reset();
     }

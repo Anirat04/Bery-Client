@@ -54,11 +54,11 @@ const router = createBrowserRouter([
       },
       {
         path: "all_properties",
-        element: <AllProperties></AllProperties>
+        element: <PrivateRoutes><AllProperties></AllProperties></PrivateRoutes>
       },
       {
         path: "all_properties/details/:id",
-        element: <Details></Details>,
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
         loader: ({ params }) => fetch(`https://bery-server.vercel.app/property/${params.id}`)
       },
       {

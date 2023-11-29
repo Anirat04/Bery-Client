@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAdmin from "../../hooks/useAdmin";
 import useAgent from "../../hooks/useAgent";
 import { useContext } from "react";
@@ -12,17 +12,19 @@ const Dash_Nav = () => {
     const [isAgent, isAgentLoading] = useAgent()
     console.log(isAgent)
     if (loading || isAdminLoading || isAgentLoading) {
-        return 
+        return
     }
     return (
         <div className="w-[300px] fixed">
             <div className="flex h-screen flex-col justify-between border-e bg-white">
                 <div className="px-4 py-6">
-                    <span
-                        className="grid h-10 w-32 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600"
-                    >
-                        Logo
-                    </span>
+                    <Link to="/">
+                        <span
+                            className="grid h-10 w-32 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600"
+                        >
+                            Home
+                        </span>
+                    </Link>
 
                     <ul className="mt-6 space-y-1">
                         {
@@ -215,13 +217,13 @@ const Dash_Nav = () => {
                     <NavLink href="#" className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50">
                         <img
                             alt="Man"
-                            src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                            src={user?.photoURL}
                             className="h-10 w-10 rounded-full object-cover"
                         />
 
                         <div>
                             <p className="text-xs">
-                                <strong className="block font-medium">Eric Frusciante</strong>
+                                <strong className="block font-medium">{user?.displayName}</strong>
 
                                 <span>{user?.email}</span>
                             </p>

@@ -47,7 +47,7 @@ const ManageUsers = () => {
         console.log(oneUser)
         Swal.fire({
             title: "Want to delete??",
-            text: "If you want to delete this user, click Confirm",
+            text: `Do you want to delete ${oneUser.name} from use? Then click Confirm`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",

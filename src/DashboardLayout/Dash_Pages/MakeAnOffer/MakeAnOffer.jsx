@@ -70,7 +70,7 @@ const MakeAnOffer = () => {
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Login to proceed",
+                confirmButtonText: "Offer Again",
             }).then((result) => {
                 if (result.isConfirmed) {
                     // send the user to the login page by navigate

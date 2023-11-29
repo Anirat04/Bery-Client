@@ -97,7 +97,7 @@ function Navbar() {
                     </Typography> */}
                     <Box>
                         {/* <img src="https://i.ibb.co/XtqfBDk/logo-white.png" alt="" /> */}
-                        <img src={blackLogo} alt="" />
+                        <Link to="/"><img src={blackLogo} alt="" /></Link>
 
                     </Box>
 

@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 
 const Advertisement = () => {
     const [allProperties] = useProperty()
-    const advertisementProperties = allProperties.slice(0, 6)
+    const getAdvertisement = allProperties.filter(adProperies => adProperies.advertisement_status === 'advertised')
+    // console.log(getAdvertisement)
+    const advertisementProperties = getAdvertisement.slice(0, 4)
     return (
-        <div className="max-w-[1320px] mx-auto">
+        <div className="max-w-[1320px] mx-auto mt-[120px]">
             <CommonHeading
                 subHeading={'Best Choice'}
                 heading={'Popular Properties'}
@@ -16,7 +18,10 @@ const Advertisement = () => {
                 {
                     advertisementProperties.map(property => (
                         <div key={property._id} className="card w-[410px] h-[542px] bg-base-100 shadow-xl rounded-lg relative hover:bottom-2">
-                            <figure><img className="w-full" src={property.Property_img} alt="Shoes" /></figure>
+                            <figure>
+                                <img className="w-full" src={property.Property_img} alt="Shoes" />
+                                <div className="badge badge-neutral absolute top-5 right-5">Advertisement</div>
+                            </figure>
                             <div className="card-body">
                                 <div className="flex justify-between">
                                     <h2 className="card-title text-[#0b2c3d] text-[26px] lora-font">
