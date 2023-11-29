@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const Wishlist = () => {
-    const [wishData] = useWishData()
+    const [wishData, refetch] = useWishData()
     const axiosSecure = useAxiosSecure()
 
     const handleDeleteWish = (wishID) => {
@@ -19,18 +19,24 @@ const Wishlist = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Confirm",
-        }).then( async (result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await axiosSecure.delete(`/wishlist/${wishID}`)
                 console.log(res.data)
-                // send the user to the login page by navigate
-                // navigate('/login')
+                refetch()
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "A property deleted from the wishlist",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         });
     }
 
     return (
-        <div className=" w-full bg-base-200 p-[60px] ml-[300px]">
+        <div className=" w-full bg-base-200 p-[60px] ml-[300px] min-h-screen">
             <h1>this is wishlist {wishData.length}</h1>
             <div className="grid">
                 {

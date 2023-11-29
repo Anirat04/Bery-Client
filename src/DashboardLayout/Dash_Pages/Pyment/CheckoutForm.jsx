@@ -74,7 +74,11 @@ const CheckoutForm = ({ price, boughtItem }) => {
 
                 // now save the payment iin the database
                 const payment = {
-                    email: user?.email,
+                    Buyer_email: user?.email,
+                    Buyer_name: user?.displayName,
+                    Agent_email: boughtItem?.Agent_email,
+                    Property_title: boughtItem?.Property_title,
+                    Property_location: boughtItem?.Property_location,
                     price: totalPrice,
                     date: new Date(), //utc date convert. use momentjs to the server
                     transactionId: paymentIntent.id,

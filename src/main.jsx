@@ -36,6 +36,8 @@ import Payment from './DashboardLayout/Dash_Pages/Pyment/Payment.jsx';
 import ManageProperties from './DashboardLayout/Dash_Pages/AdminDashboard/ManageProperties/ManageProperties.jsx';
 import MyReviews from './DashboardLayout/Dash_Pages/UserDashboard/MyReviews/MyReviews.jsx';
 import ManageReviews from './DashboardLayout/Dash_Pages/AgentDashboard/ManageReviews/ManageReviews.jsx';
+import Error from './Error/Error.jsx';
+import MySoldProperties from './DashboardLayout/Dash_Pages/AgentDashboard/MySoldProperties/MySoldProperties.jsx';
 
 const queryClient = new QueryClient()
 
@@ -93,6 +95,7 @@ const router = createBrowserRouter([
         element: <Payment></Payment>
       },
 
+
       // Agent routes starts here
       {
         path: 'add_property',
@@ -110,6 +113,12 @@ const router = createBrowserRouter([
         path: 'requestedProperties',
         element: <RequestedProperties></RequestedProperties>
       },
+      {
+        path: 'mySoldProperties',
+        element: <MySoldProperties></MySoldProperties>
+      },
+
+
       // Admin routes starts here
       {
         path: 'admin_profile',
@@ -133,6 +142,10 @@ const router = createBrowserRouter([
         element: <ManageReviews></ManageReviews>
       }
     ]
+  },
+  {
+    path: '*',
+    element: <Error></Error>
   }
 ]);
 

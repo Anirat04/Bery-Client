@@ -166,17 +166,6 @@ const MakeAnOffer = () => {
                                     </div>
                                 </div>
 
-                                {/* <div>
-                                    <label className="sr-only" htmlFor="message">Message</label>
-
-                                    <textarea
-                                        className="w-full rounded-lg border border-gray-400 p-3 text-sm"
-                                        placeholder="Message"
-                                        rows="8"
-                                        id="message"
-                                    ></textarea>
-                                </div> */}
-
                                 <div className="mt-4 flex justify-center">
                                     <button
                                         type="submit"

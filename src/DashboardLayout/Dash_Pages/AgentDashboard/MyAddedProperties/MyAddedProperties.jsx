@@ -43,7 +43,7 @@ const MyAddedProperties = () => {
 
     return (
         <div className="ml-[300px] bg-base-300 w-full min-h-screen">
-            <div>
+            <div className="grid grid-cols-3 justify-items-center min-w-full">
                 {
                     agentProperties.map(agentProperty => (
                         <div key={agentProperty._id} className="card w-[410px] h-[542px] bg-base-100 shadow-xl rounded-lg relative hover:bottom-2">
@@ -66,13 +66,19 @@ const MyAddedProperties = () => {
                                     <p className="text-[18px] text-[#0b2c3d] lora-font font-semibold">Price: ${agentProperty.Min_price} - ${agentProperty.Max_price}</p>
                                 </div>
                                 <div className="divider my-[8px]"></div>
-                                <div className="flex justify-between items-center gap-4">
+                                <div className={`flex justify-between items-center ${agentProperty.verification_status === 'Rejected' ? "" : "gap-4"}`}>
                                     <div className="w-1/2">
-                                        <Link to={`updateProperty/${agentProperty._id}`}>
-                                            <button className="btn bg-[#0b2c3d] text-white w-full">Update</button>
-                                        </Link>
+                                        {
+                                            agentProperty.verification_status === 'Rejected' ?
+                                                <></>
+                                                :
+                                                <Link to={`updateProperty/${agentProperty._id}`}>
+                                                    <button className="btn bg-[#0b2c3d] text-white w-full">Update</button>
+                                                </Link>
+                                        }
+
                                     </div>
-                                    <div className="w-1/2">
+                                    <div className={`${agentProperty.verification_status === 'Rejected' ? "min-w-full" : "w-1/2"}`}>
                                         <button onClick={() => handleDeleteProperty(agentProperty._id)} className="btn bg-[#0b2c3d] text-white w-full">Delete</button>
                                     </div>
                                 </div>
