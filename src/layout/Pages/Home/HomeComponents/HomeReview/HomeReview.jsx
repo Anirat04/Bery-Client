@@ -69,7 +69,7 @@ const HomeReview = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='bg-[#0b2c3d] w-[402px] min-h-[505px] max-h-[505px] absolute top-0 left-[150px] z-10 rounded-[32px]'>
+                                    <div className='bg-[#0b2c3d] w-[402px] min-h-[505px] max-h-[505px] absolute top-0 left-[150px] z-10 rounded-[32px] hidden lg:block'>
                                         <img className='min-h-full' src={dumbIMG.img1} alt="" />
                                     </div>
                                 </div>

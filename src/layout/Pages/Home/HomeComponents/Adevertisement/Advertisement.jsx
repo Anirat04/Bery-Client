@@ -14,10 +14,10 @@ const Advertisement = () => {
                 subHeading={'Best Choice'}
                 heading={'Popular Properties'}
             ></CommonHeading>
-            <div className="grid grid-cols-3 justify-between gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center justify-between gap-10">
                 {
                     advertisementProperties.map(property => (
-                        <div key={property._id} className="card w-[410px] h-[542px] bg-base-100 shadow-xl rounded-lg relative hover:bottom-2">
+                        <div key={property._id} className="card mx-5  md:m-0  md:w-[410px] h-[542px] bg-base-100 shadow-xl rounded-lg relative hover:bottom-2">
                             <figure>
                                 <img className="w-full" src={property.Property_img} alt="Shoes" />
                                 <div className="badge badge-neutral absolute top-5 right-5">Advertisement</div>

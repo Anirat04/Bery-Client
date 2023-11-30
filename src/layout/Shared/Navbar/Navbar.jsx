@@ -76,91 +76,15 @@ function Navbar() {
     return (
         <AppBar position="static" className='py-[20px]' sx={{ backgroundColor: '#e9f1ff' }}>
             <Container maxWidth="xl">
-                <Toolbar disableGutters className='flex justify-between'>
-                    {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography> */}
+                <Toolbar disableGutters className='flex justify-between flex-col md:flex-row'>
                     <Box>
                         {/* <img src="https://i.ibb.co/XtqfBDk/logo-white.png" alt="" /> */}
                         <Link to="/"><img src={blackLogo} alt="" /></Link>
 
                     </Box>
 
-                    {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            //   onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            //   anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            //   open={Boolean(anchorElNav)}
-                            //   onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page}
-                                // onClick={handleCloseNavMenu}
-                                >
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography> */}
-
                     {/* Menu bar */}
-                    <Box className="flex justify-center gap-[60px] w-1/3" >
+                    <Box className="flex flex-col gap-5 md:flex-row justify-center md:gap-[60px] w-1/3 my-5 md:my-0" >
                         {navlinks}
                     </Box>
 
@@ -191,26 +115,6 @@ function Navbar() {
                                 </Button>
                             </Link>
                         </Tooltip>
-                        {/* <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            //   anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                        //   open={Boolean(anchorElUser)}
-                        //   onClose={handleCloseUserMenu}
-                        >
-                            <MenuItem>
-                                <Typography textAlign="center">Profile</Typography>
-                            </MenuItem>
-                        </Menu> */}
                     </Box>
                 </Toolbar>
             </Container>
