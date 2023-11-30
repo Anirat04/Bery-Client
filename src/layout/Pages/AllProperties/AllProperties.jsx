@@ -3,6 +3,7 @@ import PropertyCard from "../../Shared/PropertyCard/PropertyCard";
 import CommonHeading from "../../Shared/CommonHeading/CommonHeading";
 import useProperty from "../../../hooks/useProperty";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const AllProperties = () => {
     const [allProperties] = useProperty();
@@ -47,6 +48,9 @@ const AllProperties = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Bery | All Properties</title>
+            </Helmet>
             <div className="hero h-[513px]" style={{ backgroundImage: 'url(https://i.ibb.co/5YrgV3F/bg-1.png)' }}>
                 <div className="hero-overlay bg-black bg-opacity-70"></div>
                 <div className="hero-content text-center text-white -content">
