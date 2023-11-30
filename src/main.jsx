@@ -39,6 +39,7 @@ import ManageReviews from './DashboardLayout/Dash_Pages/AgentDashboard/ManageRev
 import Error from './Error/Error.jsx';
 import MySoldProperties from './DashboardLayout/Dash_Pages/AgentDashboard/MySoldProperties/MySoldProperties.jsx';
 import PrivateRoutes from './PrivateRoutes/PrivateRoutes.jsx';
+import AgentRoute from './PrivateRoutes/AgentRoute.jsx';
 
 const queryClient = new QueryClient()
 
@@ -77,7 +78,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'wishlist',
-        element:<Wishlist></Wishlist>
+        element: <Wishlist></Wishlist>
       },
       {
         path: 'wishlist/makeOffer/:id',
@@ -95,32 +96,36 @@ const router = createBrowserRouter([
         path: 'property_bought/payment/:id',
         element: <Payment></Payment>
       },
+      {
+        path: 'myReviews',
+        element: <MyReviews></MyReviews>
+      },
 
 
       // Agent routes starts here
       {
         path: 'agent_profile',
-        element: <UserProfile></UserProfile>
+        element: <AgentRoute><UserProfile></UserProfile></AgentRoute>
       },
       {
         path: 'add_property',
-        element: <AddProperty></AddProperty>
+        element: <AgentRoute><AddProperty></AddProperty></AgentRoute>
       },
       {
         path: 'myAddedProperties',
-        element: <MyAddedProperties></MyAddedProperties>
+        element: <AgentRoute><MyAddedProperties></MyAddedProperties></AgentRoute>
       },
       {
         path: 'myAddedProperties/updateProperty/:id',
-        element: <UpdateProperty></UpdateProperty>
+        element: <AgentRoute><UpdateProperty></UpdateProperty></AgentRoute>
       },
       {
         path: 'requestedProperties',
-        element: <RequestedProperties></RequestedProperties>
+        element: <AgentRoute><RequestedProperties></RequestedProperties></AgentRoute>
       },
       {
         path: 'mySoldProperties',
-        element: <MySoldProperties></MySoldProperties>
+        element: <AgentRoute><MySoldProperties></MySoldProperties></AgentRoute>
       },
 
 
@@ -136,15 +141,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'manageProperties',
-        element: <ManageProperties></ManageProperties>
-      },
-      {
-        path: 'myReviews',
-        element: <MyReviews></MyReviews>
+        element: <AdminRoute><ManageProperties></ManageProperties></AdminRoute>
       },
       {
         path: 'manageReviews',
-        element: <ManageReviews></ManageReviews>
+        element: <AdminRoute><ManageReviews></ManageReviews></AdminRoute>
       }
     ]
   },
