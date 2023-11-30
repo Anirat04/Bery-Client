@@ -18,8 +18,8 @@ const PropertyCard = ({ PropertyInfo }) => {
                             <div className="badge text-white bg-[#0b2c3d]">{PropertyInfo.verification_status}</div>
                         </div>
                     </div>
-                    <div className="flex justify-between">
-                        <h2 className="card-title text-[#0b2c3d] text-[26px] lora-font">
+                    <div className="">
+                        <h2 className=" font-bold text-[#0b2c3d] text-[26px] lora-font truncate  ">
                             {PropertyInfo.Property_title}
                         </h2>
                     </div>
