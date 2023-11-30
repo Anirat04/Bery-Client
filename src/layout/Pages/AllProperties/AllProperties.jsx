@@ -63,7 +63,7 @@ const AllProperties = () => {
                     heading={'All Properties'}
                 ></CommonHeading>
                 {/* Search and sort section */}
-                <div className="max-w-[600px] mx-auto mb-[80px]">
+                <div className="max-w-[600px] mx-auto mb-[80px] px-5 md:px-0">
                     <form >
                         <div className="flex">
                             <ul>
@@ -98,7 +98,7 @@ const AllProperties = () => {
                         </div>
                     </form>
                 </div>
-                <div className="max-w-[1320px] mx-auto grid grid-cols-3 justify-between gap-10">
+                <div className="max-w-[1320px] mx-auto grid grid-cols-1  md:grid-cols-3 justify-between gap-10 px-5 md:px-0">
                     {
                         verifiedProperties.map(property => (
                             <PropertyCard

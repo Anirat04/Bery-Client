@@ -10,7 +10,7 @@ const Property_bought = () => {
 
 
     return (
-        <div className="ml-[300px] w-full flex justify-center">
+        <div className="ml-[300px] w-full flex justify-center mt-[90px]">
             <div className="grid grid-cols-3 gap-8 mt-[80px]">
                 {
                     propertyBought.map(PropertyInfo => (

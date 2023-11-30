@@ -13,9 +13,9 @@ const Payment = () => {
     const boughtItem = getPayProduct[0]
     const price = getPayProduct[0]?.offered_Price
     return (
-        <div className="ml-[300px] w-full bg-base-200">
+        <div className="ml-[300px] w-full min-h-screen bg-base-200 mt-[90px]">
             <div className="bg-white p-[60px] max-w-[800px] mx-auto">
-                <h1>This is payment route</h1>
+                <h1>Insert your payment Credential</h1>
                 <div>
                     <Elements stripe={stripePromise}>
                         <CheckoutForm price={price} boughtItem={boughtItem}></CheckoutForm>

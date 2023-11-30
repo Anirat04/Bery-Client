@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useProperty from "../../../../hooks/useProperty";
+import CommonHeading from "../../../../layout/Shared/CommonHeading/CommonHeading";
 
 
 const ManageProperties = () => {
@@ -44,8 +45,10 @@ const ManageProperties = () => {
 
 
     return (
-        <div className="ml-[300px] w-full">
-            <h1>this is manage Properties in admin dashboard</h1>
+        <div className="ml-[300px] w-full bg-white mt-[90px]">
+            {/* <CommonHeading
+            heading={'Manage Properties'}
+            ></CommonHeading> */}
             <div>
                 <div className="overflow-x-auto">
                     <table className="table table-zebra">

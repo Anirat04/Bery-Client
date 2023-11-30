@@ -77,11 +77,11 @@ const ManageUsers = () => {
 
 
     return (
-        <div className="ml-[300px]">
+        <div className="ml-[300px] mt-[90px] bg-base-300 min-h-screen w-[1820px]">
             <div className="overflow-x-auto">
-                <table className="table-md">
+                <table className="table-lg table-zebra w-full">
                     {/* head */}
-                    <thead>
+                    <thead className="bg-white w-full">
                         <tr>
                             <th></th>
                             <th>User Name</th>
@@ -92,7 +92,7 @@ const ManageUsers = () => {
                             <th>Remove User</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="w-full">
                         {/* row 1 */}
                         {
                             allUsers.map((oneUser, index) => (

@@ -21,6 +21,8 @@ import './Navbar.css'
 // import black sbg logo
 import blackLogo from '../../../assets/BeryImg/logo.svg'
 import useWishData from '../../../hooks/useWishData';
+import useAdmin from '../../../hooks/useAdmin';
+import useAgent from '../../../hooks/useAgent';
 // const pages = ['Home', 'Pricing', 'Blog'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -28,6 +30,8 @@ import useWishData from '../../../hooks/useWishData';
 function Navbar() {
     const { user, logOut } = useContext(ProviderContext)
     const [wishlist] = useWishData()
+    const [isAdmin, isAdminLoading] = useAdmin();
+    const [isAgent, isAgentLoading] = useAgent()
     // console.log( 'wishlist',wishlist)
 
     // this event handler is to log out users from the server
@@ -42,36 +46,9 @@ function Navbar() {
     const navlinks = <>
         <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='/'>Home</NavLink>
         <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='all_properties'>All Properties</NavLink>
-        <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='dashboard'>Dashboard</NavLink>
+        <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to={`dashboard/${isAdmin && 'admin_profile' || isAgent && 'agent_profile' || 'user_profile'}`}>Dashboard</NavLink>
         <NavLink className='text-[18px] text-[#0b2c3d]  hover:text-[#b39359] lora-font' to='login'>Login</NavLink>
-        {/* <NavLink className='text-[20px] font-extrabold hover:text-[#EEFF25]' to='dashboard/wishlist'>
-            <button className="btn">
-                Inbox
-                <div className="badge badge-secondary">+{wishlist?.length}</div>
-            </button>
-        </NavLink> */}
-        {/* {
-            user ? <button onClick={handleLogOut} className="btn">LogOut</button>
-                : <NavLink className='text-[20px] font-extrabold hover:text-[#EEFF25]' to='login'>Login</NavLink>
-        } */}
     </>
-    //   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    //   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
-    //   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    //     setAnchorElNav(event.currentTarget);
-    //   };
-    //   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    //     setAnchorElUser(event.currentTarget);
-    //   };
-
-    //   const handleCloseNavMenu = () => {
-    //     setAnchorElNav(null);
-    //   };
-
-    //   const handleCloseUserMenu = () => {
-    //     setAnchorElUser(null);
-    //   };
 
     return (
         <AppBar position="static" className='py-[20px]' sx={{ backgroundColor: '#e9f1ff' }}>

@@ -42,8 +42,8 @@ const MyAddedProperties = () => {
     }
 
     return (
-        <div className="ml-[300px] bg-base-300 w-full min-h-screen">
-            <div className="grid grid-cols-3 justify-items-center min-w-full">
+        <div className="ml-[300px] bg-base-300 w-full min-h-screen mt-[90px]">
+            <div className="grid grid-cols-3 justify-items-center min-w-full pt-[100px]">
                 {
                     agentProperties.map(agentProperty => (
                         <div key={agentProperty._id} className="card w-[410px] h-[542px] bg-base-100 shadow-xl rounded-lg relative hover:bottom-2">

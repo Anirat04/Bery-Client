@@ -36,8 +36,7 @@ const Wishlist = () => {
     }
 
     return (
-        <div className=" w-full bg-base-200 p-[60px] ml-[300px] min-h-screen">
-            <h1>this is wishlist {wishData.length}</h1>
+        <div className=" w-full bg-base-200 p-[60px] ml-[300px] min-h-screen pt-[120px]">
             <div className="grid">
                 {
                     wishData.map(data => (

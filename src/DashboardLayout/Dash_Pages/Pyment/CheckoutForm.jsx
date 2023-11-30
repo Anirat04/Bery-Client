@@ -11,9 +11,9 @@ const CheckoutForm = ({ price, boughtItem }) => {
     const stripe = useStripe();
     const elements = useElements();
     const axiosSecure = useAxiosSecure()
-    const {user} = useContext(ProviderContext)
+    const { user } = useContext(ProviderContext)
     console.log(price)
-    console.log('Bought Item',boughtItem);
+    console.log('Bought Item', boughtItem);
     const totalPrice = price
 
     useEffect(() => {
@@ -63,12 +63,12 @@ const CheckoutForm = ({ price, boughtItem }) => {
                 }
             }
         })
-        if(confirmError) {
+        if (confirmError) {
             console.log('payment error', confirmError)
         }
-        else{
+        else {
             console.log('payment intent', paymentIntent)
-            if(paymentIntent.status === 'succeeded'){
+            if (paymentIntent.status === 'succeeded') {
                 console.log('transaction id:', paymentIntent.id)
                 setTransactionId(paymentIntent.id)
 
@@ -88,7 +88,7 @@ const CheckoutForm = ({ price, boughtItem }) => {
                     status: 'bought'
                 }
                 const res = await axiosSecure.post('/payments', payment);
-                console.log('payment saved' ,res);
+                console.log('payment saved', res);
             }
         }
     }
@@ -96,10 +96,11 @@ const CheckoutForm = ({ price, boughtItem }) => {
     return (
         <form onSubmit={handleSubmit}>
             <CardElement
+                className="border h-[80px] pt-6"
                 options={{
                     style: {
                         base: {
-                            fontSize: '16px',
+                            fontSize: '26px',
                             color: '#424770',
                             '::placeholder': {
                                 color: '#aab7c4',
@@ -111,17 +112,19 @@ const CheckoutForm = ({ price, boughtItem }) => {
                     },
                 }}
             />
-            <button
-                type="submit"
-                disabled={!stripe || !clientSecret}
-                className="btn btn-primary"
-            >
-                Pay
-            </button>
+            <span className="w-full flex justify-center mt-5">
+                <button
+                    type="submit"
+                    disabled={!stripe || !clientSecret}
+                    className="btn w-[100px] bg-[#0b2c3d] text-white hover:bg-[#b39359] "
+                >
+                    Pay
+                </button>
+            </span>
             <p className="text-red-400">
                 {error}
             </p>
-            {transactionId &&  <p className="text-green-400">Your transaction id is: {transactionId}</p>}
+            {transactionId && <p className="text-green-400">Your transaction id is: {transactionId}</p>}
         </form>
     );
 };

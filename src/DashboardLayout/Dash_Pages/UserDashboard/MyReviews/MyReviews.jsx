@@ -41,7 +41,7 @@ const MyReviews = () => {
     }
 
     return (
-        <div className="ml-[300px] w-full">
+        <div className="ml-[300px] w-full mt-[90px]">
 
             <section className="bg-base-300 min-w-full min-h-screen">
                 <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">

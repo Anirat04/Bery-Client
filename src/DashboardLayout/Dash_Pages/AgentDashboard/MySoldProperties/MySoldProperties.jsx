@@ -46,33 +46,35 @@ const MySoldProperties = () => {
     const [allPayment, refetch] = useAllPayment()
     console.log('All payments', allPayment)
     return (
-        <div className="ml-[300px]">
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 700 }} aria-label="customized table">
-                    <TableHead>
-                        <TableRow>
-                            <StyledTableCell>Title</StyledTableCell>
-                            <StyledTableCell align="right">Location</StyledTableCell>
-                            <StyledTableCell align="right">Buyer Name</StyledTableCell>
-                            <StyledTableCell align="right">Buyer Email</StyledTableCell>
-                            <StyledTableCell align="right">Sold Price</StyledTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {allPayment.map((row) => (
-                            <StyledTableRow key={row._id}>
-                                <StyledTableCell component="th" scope="row">
-                                    {row.Property_title}
-                                </StyledTableCell>
-                                <StyledTableCell align="right">{row.Property_location}</StyledTableCell>
-                                <StyledTableCell align="right">{row.Buyer_name}</StyledTableCell>
-                                <StyledTableCell align="right">{row.Buyer_email}</StyledTableCell>
-                                <StyledTableCell align="right">${row.price}</StyledTableCell>
-                            </StyledTableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+        <div className="ml-[300px] mt-[90px] min-h-screen w-full px-[40px]">
+            <div className="pt-[40px]">
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 1200 }} aria-label="customized table">
+                        <TableHead>
+                            <TableRow>
+                                <StyledTableCell>Title</StyledTableCell>
+                                <StyledTableCell align="right">Location</StyledTableCell>
+                                <StyledTableCell align="right">Buyer Name</StyledTableCell>
+                                <StyledTableCell align="right">Buyer Email</StyledTableCell>
+                                <StyledTableCell align="right">Sold Price</StyledTableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody  >
+                            {allPayment.map((row) => (
+                                <StyledTableRow key={row._id}>
+                                    <StyledTableCell component="th" scope="row">
+                                        {row.Property_title}
+                                    </StyledTableCell>
+                                    <StyledTableCell align="right">{row.Property_location}</StyledTableCell>
+                                    <StyledTableCell align="right">{row.Buyer_name}</StyledTableCell>
+                                    <StyledTableCell align="right">{row.Buyer_email}</StyledTableCell>
+                                    <StyledTableCell align="right">${row.price}</StyledTableCell>
+                                </StyledTableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </div>
         </div>
     );
 };

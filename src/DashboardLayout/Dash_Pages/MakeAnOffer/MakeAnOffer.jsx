@@ -84,7 +84,7 @@ const MakeAnOffer = () => {
 
 
     return (
-        <div className="ml-[300px] w-full min-h-screen">
+        <div className="ml-[300px] w-full min-h-screen mt-[90px]">
             <section className="bg-gray-100 h-full">
                 <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                     <div className="">

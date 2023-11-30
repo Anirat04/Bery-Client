@@ -46,11 +46,10 @@ const RequestedProperties = () => {
 
 
     return (
-        <div className="bg-base-300 ml-[300px] w-full">
-            <h1>This is requested Property</h1>
+        <div className="bg-base-300 ml-[300px] w-full mt-[90px]">
             <div>
                 <div className="overflow-x-auto">
-                    <table className="table text-center">
+                    <table className="table-lg w-full text-center">
                         {/* head */}
                         <thead>
                             <tr>
@@ -73,7 +72,7 @@ const RequestedProperties = () => {
                             {/* row 1 */}
                             {
                                 requestedProperties.map((request, index) => (
-                                    <tr key={request._id}>
+                                    <tr key={request._id} className="border border-gray-300">
                                         <th>
                                             <p>{index + 1}</p>
                                         </th>

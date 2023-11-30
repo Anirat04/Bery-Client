@@ -8,7 +8,7 @@ const PropertyCard = ({ PropertyInfo }) => {
     // console.log('pathname', pathname)
     return (
         <div>
-            <div className="card w-[410px] h-[542px] bg-base-100 shadow-xl rounded-lg relative hover:bottom-2">
+            <div className="card md:w-[410px] h-[542px] bg-base-100 shadow-xl rounded-lg relative hover:bottom-2">
                 <figure><img className="w-full" src={PropertyInfo.Property_img} alt="Shoes" /></figure>
                 <div className="card-body pt-5">
                     <div className="flex gap-3 items-center mb-3">

@@ -14,8 +14,8 @@ const UserProfile = () => {
     console.log(userData)
     return (
         <>
-            <div className="bg-base-200 min-h-screen ml-[200px] min-w-full flex justify-center">
-                <div className=" flex flex-col items-center py-[200px]">
+            <div className="bg-white min-h-screen ml-[180px] min-w-full flex justify-center">
+                <div className=" flex flex-col items-center py-[250px]">
                     <h1 className="text-5xl font-bold mb-[40px]">Current User profile</h1>
                     <div className="flex flex-col justify-center min-w-[600px] p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
                         <img src={`${user?.photoURL ? user.photoURL : 'https://i.ibb.co/N7JQLnY/user-default-image.jpg'}`} alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />

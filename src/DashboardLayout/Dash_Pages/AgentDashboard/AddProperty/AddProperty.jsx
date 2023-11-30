@@ -65,9 +65,8 @@ const AddProperty = () => {
 
     // "verification_status": "Verified",
     return (
-        <div className="pl-[300px] w-full min-h-screen">
-            <div>
-                <h1>thsi is add property route</h1>
+        <div className="pl-[300px] w-full min-h-screen mt-[90px]">
+            <div className="pt-[100px]">
                 <div className="w-[800px] mx-auto bg-base-300">
                     <form
                         onSubmit={handleSubmit(onSubmit)}
